@@ -2,7 +2,7 @@ import useRGS from "r18gs";
 
 export type ColorSchemePreference = "system" | "dark" | "light";
 export type ResolvedScheme = "dark" | "light";
-// const modes: Mode[] = ["system", "dark", "light"];
+export const modes: ColorSchemePreference[] = ["system", "dark", "light"];
 export interface Store {
   mode: ColorSchemePreference;
   systemMode: ResolvedScheme;

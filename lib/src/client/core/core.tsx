@@ -1,4 +1,4 @@
-import { useStore } from "../../utils";
+import { modes, useStore } from "../../utils";
 import { useEffect } from "react";
 
 export interface CoreProps {
@@ -44,5 +44,16 @@ export const Core = ({ t }: CoreProps) => {
       removeEventListener("storage", storageListener);
     };
   }, []);
+
+  useEffect(() => {
+    const documentEl = document.documentElement;
+    const clsList = documentEl.classList;
+    modes.forEach(mode => clsList.remove(mode));
+    clsList.add(resolvedMode);
+    clsList.add(mode);
+    documentEl.setAttribute("data-system", systemMode);
+    localStorage.setItem(key, JSON.stringify({ mode, systemMode }));
+  }, [resolvedMode]);
+
   return null;
 };
