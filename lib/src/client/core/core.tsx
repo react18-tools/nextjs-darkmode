@@ -1,25 +1,18 @@
-import { HTMLProps, ReactNode } from "react";
-import styles from "./core.module.scss";
-
-export interface CoreProps extends HTMLProps<HTMLDivElement> {
-	children?: ReactNode;
+export interface CoreProps {
+  /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
+  t?: string;
 }
 
 /**
- * 
+ *
  *
  * @example
  * ```tsx
  * <Core />
  * ```
- * 
+ *
  * @source - Source code
  */
-export const Core = ({ children, ...props }: CoreProps) => {
-  const className = [props.className, styles["core"]].filter(Boolean).join(" ");
-	return (
-		<div {...props} className={className} data-testid="core">
-			{children}
-		</div>
-	);
-}
+export const Core = ({ t }: CoreProps) => {
+  return null;
+};

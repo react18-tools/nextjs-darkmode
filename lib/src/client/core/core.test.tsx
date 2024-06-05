@@ -3,11 +3,9 @@ import { afterEach, describe, test } from "vitest";
 import { Core } from "./core";
 
 describe.concurrent("core", () => {
-	afterEach(cleanup);
+  afterEach(cleanup);
 
-	test("Dummy test - test if renders without errors", ({ expect }) => {
-		const clx = "my-class";
-		render(<Core className={clx} />);
-		expect(screen.getByTestId("core").classList).toContain(clx);
-	});
+  test("test if renders without errors", ({ expect }) => {
+    render(<Core />);
+  });
 });
