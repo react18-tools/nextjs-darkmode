@@ -24,7 +24,7 @@
     "jdZxwLymOo7w2eZeNpvsN": {
       "id": "jdZxwLymOo7w2eZeNpvsN",
       "description": "Run `yarn plop`, and follow prompts to generate server or client components for your library",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "RX4J5v4y5IOe_ucf8pMRT": {
       "id": "RX4J5v4y5IOe_ucf8pMRT",
@@ -105,6 +105,26 @@
       "id": "wkDDELNeOfYSVmWI1eWu0",
       "description": "Install the recommended VSCode extensions:\n  - [Trello Kanban](https://marketplace.visualstudio.com/items?itemName=mayank1513.trello-kanban-task-board)",
       "columnId": "column-done"
+    },
+    "IhVejTgkQc-m8XY1b6KXw": {
+      "id": "IhVejTgkQc-m8XY1b6KXw",
+      "description": "Core Component\n- Toggle theme -- by toggling className\n- listen to changes in prefer-color-scheme\n- sync betweeen tabs, etc.",
+      "columnId": "column-doing"
+    },
+    "1jEMZiPKJSVpEMu6ZxfpX": {
+      "id": "1jEMZiPKJSVpEMu6ZxfpX",
+      "description": "useMode hook\n- Providing themeState -- mode, resolvedMode, systemColorScheme, setMode",
+      "columnId": "column-doing"
+    },
+    "bjrSIW2boIWsI4h74nxXl": {
+      "id": "bjrSIW2boIWsI4h74nxXl",
+      "description": "switch\n- UI switch to toggle modes",
+      "columnId": "column-doing"
+    },
+    "ltOP38szvwpGAruTRbxOq": {
+      "id": "ltOP38szvwpGAruTRbxOq",
+      "description": "ServerTarget\n- to sync theme with the help of server components --- avoid jitter of unthemed page",
+      "columnId": "column-doing"
     }
   },
   "columns": [
@@ -132,13 +152,17 @@
       "id": "column-doing",
       "title": "Doing",
       "tasksIds": [
-        "jdZxwLymOo7w2eZeNpvsN"
+        "IhVejTgkQc-m8XY1b6KXw",
+        "1jEMZiPKJSVpEMu6ZxfpX",
+        "bjrSIW2boIWsI4h74nxXl",
+        "ltOP38szvwpGAruTRbxOq"
       ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "jdZxwLymOo7w2eZeNpvsN",
         "jcpymbi71e702p7n6fwvZ",
         "Y5__aEZl3Pbxp7r90HKpV",
         "gbzyhx0FwFfzRoE-iqVeu",
