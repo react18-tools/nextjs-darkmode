@@ -1,8 +1,10 @@
-import { HTMLProps, ReactNode, useCallback } from "react";
+import { HTMLProps, useCallback } from "react";
 import styles from "./switch.module.scss";
 import { modes, useStore } from "../../utils";
 
-export interface SwitchProps extends HTMLProps<HTMLDivElement> {
+export interface SwitchProps extends HTMLProps<HTMLElement> {
+  /** html tag @defaultValue 'button' */
+  tag: "button" | "div";
   /** Diameter of the color switch */
   size?: number;
   /** Skip system colorScheme while toggling */
@@ -19,7 +21,7 @@ export interface SwitchProps extends HTMLProps<HTMLDivElement> {
  *
  * @source - Source code
  */
-export const Switch = ({ size, skipSystem, ...props }: SwitchProps) => {
+export const Switch = ({ tag: Tag = "button", size, skipSystem, ...props }: SwitchProps) => {
   const [state, setState] = useStore();
   const handleModeSwitch = useCallback(() => {
     let index = modes.indexOf(state.mode);
@@ -30,5 +32,5 @@ export const Switch = ({ size, skipSystem, ...props }: SwitchProps) => {
     });
   }, []);
   const className = [props.className, styles["switch"]].filter(Boolean).join(" ");
-  return <div {...props} className={className} data-testid="switch" onClick={handleModeSwitch} />;
+  return <Tag {...props} className={className} data-testid="switch" onClick={handleModeSwitch} />;
 };
