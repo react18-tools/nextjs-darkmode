@@ -6,6 +6,10 @@ export interface CoreProps {
   t?: string;
 }
 
+const key = "gx";
+const parseState = (state: string | null) =>
+  state ? JSON.parse(state) : { mode: "light", systemMode: "light" };
+
 /**
  *
  *
@@ -22,13 +26,22 @@ export const Core = ({ t }: CoreProps) => {
 
   useEffect(() => {
     const media = matchMedia("(prefers-color-scheme: dark)");
+    /** Updating media: prefers-color-scheme*/
     const updateSystemColorScheme = () => {
       setThemeState(state => ({ ...state, systemMode: media.matches ? "dark" : "light" }));
     };
     updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
+
+    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
+    /** Sync the tabs */
+    const storageListener = (e: StorageEvent): void => {
+      if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
+    };
+    addEventListener("storage", storageListener);
     return () => {
       media.removeEventListener("change", updateSystemColorScheme);
+      removeEventListener("storage", storageListener);
     };
   }, []);
   return null;
