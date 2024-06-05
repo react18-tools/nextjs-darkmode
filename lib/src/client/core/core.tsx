@@ -50,8 +50,11 @@ export const Core = ({ t }: CoreProps) => {
     const clsList = documentEl.classList;
     modes.forEach(mode => clsList.remove(mode));
     clsList.add(resolvedMode);
-    clsList.add(mode);
-    documentEl.setAttribute("data-system", systemMode);
+    [
+      ["sm", systemMode],
+      ["rm", resolvedMode],
+      ["m", mode],
+    ].forEach(([dataLabel, value]) => documentEl.setAttribute(`data-${dataLabel}`, value));
     localStorage.setItem(key, JSON.stringify({ mode, systemMode }));
   }, [resolvedMode]);
 

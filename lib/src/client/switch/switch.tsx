@@ -4,7 +4,7 @@ import { modes, useStore } from "../../utils";
 
 export interface SwitchProps extends HTMLProps<HTMLElement> {
   /** html tag @defaultValue 'button' */
-  tag: "button" | "div";
+  tag?: "button" | "div";
   /** Diameter of the color switch */
   size?: number;
   /** Skip system colorScheme while toggling */
@@ -21,7 +21,7 @@ export interface SwitchProps extends HTMLProps<HTMLElement> {
  *
  * @source - Source code
  */
-export const Switch = ({ tag: Tag = "button", size, skipSystem, ...props }: SwitchProps) => {
+export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }: SwitchProps) => {
   const [state, setState] = useStore();
   const handleModeSwitch = useCallback(() => {
     let index = modes.indexOf(state.mode);
@@ -32,5 +32,14 @@ export const Switch = ({ tag: Tag = "button", size, skipSystem, ...props }: Swit
     });
   }, []);
   const className = [props.className, styles["switch"]].filter(Boolean).join(" ");
-  return <Tag {...props} className={className} data-testid="switch" onClick={handleModeSwitch} />;
+  return (
+    <Tag
+      {...props}
+      className={className}
+      // @ts-expect-error -> we are setting the CSS variable
+      style={{ "--size": `${size}px` }}
+      data-testid="switch"
+      onClick={handleModeSwitch}
+    />
+  );
 };
