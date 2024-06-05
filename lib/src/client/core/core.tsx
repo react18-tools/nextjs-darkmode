@@ -56,7 +56,7 @@ export const Core = ({ t }: CoreProps) => {
       ["m", mode],
     ].forEach(([dataLabel, value]) => documentEl.setAttribute(`data-${dataLabel}`, value));
     localStorage.setItem(key, JSON.stringify({ mode, systemMode }));
-  }, [resolvedMode]);
+  }, [resolvedMode, systemMode, mode]);
 
   return null;
 };
