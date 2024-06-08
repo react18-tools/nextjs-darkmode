@@ -19,6 +19,27 @@ const parseState = (state: string | null) => {
   };
 };
 
+const modifyTransition = (documentMinify: Document, themeTransition = "none") => {
+  const css = documentMinify.createElement("style");
+  /** split by ';' to prevent CSS injection */
+  const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
+  css.appendChild(
+    documentMinify.createTextNode(
+      `*{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`,
+    ),
+  );
+  documentMinify.head.appendChild(css);
+
+  return () => {
+    // Force restyle
+    getComputedStyle(documentMinify.body);
+    // Wait for next tick before removing
+    setTimeout(() => {
+      documentMinify.head.removeChild(css);
+    }, 1);
+  };
+};
+
 /**
  *
  *
@@ -51,6 +72,7 @@ export const Core = ({ t }: CoreProps) => {
 
   useEffectMinify(() => {
     const documentMinify = document;
+    const restoreTransitions = modifyTransition(documentMinify, t);
     [documentMinify.documentElement, documentMinify.querySelector("[data-ndm]")].forEach(el => {
       if (!el) return;
       const clsList = el.classList;
@@ -62,6 +84,7 @@ export const Core = ({ t }: CoreProps) => {
         ["m", mode],
       ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
     });
+    restoreTransitions();
     localStorage.setItem(COOKIE_KEY, `${mode},${systemMode}`);
     documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=${MAX_AGE};SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
