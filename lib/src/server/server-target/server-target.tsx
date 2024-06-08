@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { COOKIE_KEY } from "../../key.const";
+import { COOKIE_KEY, LIGHT } from "../../constants";
 
 /**
  * Server Side target for avoiding flash of un-themed content.
@@ -15,6 +15,6 @@ import { COOKIE_KEY } from "../../key.const";
  * ```
  */
 export const ServerTarget = () => {
-  const rm = cookies().get(COOKIE_KEY)?.value ?? "light";
+  const rm = cookies().get(COOKIE_KEY)?.value ?? LIGHT;
   return <div className={rm} data-rm={rm} data-ndm="ndm" data-testid="server-target" />;
 };

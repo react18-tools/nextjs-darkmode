@@ -1,16 +1,16 @@
 import useRGS from "r18gs";
+import { DARK, SYSTEM } from "./constants";
 
 export type ColorSchemePreference = "system" | "dark" | "light";
 export type ResolvedScheme = "dark" | "light";
-export const modes: ColorSchemePreference[] = ["system", "dark", "light"];
 export interface Store {
-  mode: ColorSchemePreference;
-  systemMode: ResolvedScheme;
+  m: ColorSchemePreference;
+  s: ResolvedScheme;
 }
 
 const DEFAULT_STORE_VAL: Store = {
-  mode: "system",
-  systemMode: "dark",
+  m: SYSTEM,
+  s: DARK as ResolvedScheme,
 };
 
 export const useStore = () => useRGS<Store>("ndm", DEFAULT_STORE_VAL);

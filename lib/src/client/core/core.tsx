@@ -1,14 +1,23 @@
-import { COOKIE_KEY } from "../../key.const";
-import { modes, useStore } from "../../utils";
+import { COOKIE_KEY, DARK, LIGHT, SYSTEM, modes } from "../../constants";
+import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
+const useEffectMinify = useEffect;
 export interface CoreProps {
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   t?: string;
 }
 
-const parseState = (state: string | null) =>
-  state ? JSON.parse(state) : { mode: "light", systemMode: "light" };
+const parseState = (state: string | null) => {
+  if (state) {
+    const [m, s] = state.split(",") as [ColorSchemePreference, ResolvedScheme];
+    return { m, s };
+  }
+  return {
+    m: SYSTEM,
+    s: LIGHT as ResolvedScheme,
+  };
+};
 
 /**
  *
@@ -21,15 +30,14 @@ const parseState = (state: string | null) =>
  * @source - Source code
  */
 export const Core = ({ t }: CoreProps) => {
-  const [{ mode, systemMode }, setThemeState] = useStore();
-  const resolvedMode = mode === "system" ? systemMode : mode; // resolvedMode is the actual mode that will be used
+  const [{ m: mode, s: systemMode }, setThemeState] = useStore();
+  const resolvedMode = mode === SYSTEM ? systemMode : mode; // resolvedMode is the actual mode that will be used
 
-  useEffect(() => {
-    const media = matchMedia("(prefers-color-scheme: dark)");
+  useEffectMinify(() => {
+    const media = matchMedia(`(prefers-color-scheme: ${DARK})`);
     /** Updating media: prefers-color-scheme*/
-    const updateSystemColorScheme = () => {
-      setThemeState(state => ({ ...state, systemMode: media.matches ? "dark" : "light" }));
-    };
+    const updateSystemColorScheme = () =>
+      setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store);
     updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
 
@@ -39,15 +47,11 @@ export const Core = ({ t }: CoreProps) => {
       if (e.key === COOKIE_KEY) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
     addEventListener("storage", storageListener);
-    return () => {
-      media.removeEventListener("change", updateSystemColorScheme);
-      removeEventListener("storage", storageListener);
-    };
   }, []);
 
-  useEffect(() => {
-    const documentEl = document.documentElement;
-    [documentEl, document.querySelector("[data-ndm='ndm']")].forEach(el => {
+  useEffectMinify(() => {
+    const documentMinify = document;
+    [documentMinify.documentElement, documentMinify.querySelector("[data-ndm]")].forEach(el => {
       if (!el) return;
       const clsList = el.classList;
       modes.forEach(mode => clsList.remove(mode));
@@ -58,8 +62,8 @@ export const Core = ({ t }: CoreProps) => {
         ["m", mode],
       ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
     });
-    localStorage.setItem(COOKIE_KEY, JSON.stringify({ mode, systemMode }));
-    document.cookie = `${COOKIE_KEY}=${resolvedMode}; max-age=31536000; SameSite=Strict;`;
+    localStorage.setItem(COOKIE_KEY, `${mode},${systemMode}`);
+    documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode}; max-age=31536000; SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
 
   return null;

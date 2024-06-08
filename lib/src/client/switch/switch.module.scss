@@ -35,10 +35,10 @@
   box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8) inset #fff;
   border: none;
   background: transparent;
-  animation: swing linear 0.5s;
+  animation: n linear 0.5s;
 }
 
-@keyframes swing {
+@keyframes n {
   40% {
     transform: rotate(-15deg);
   }

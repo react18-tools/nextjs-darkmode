@@ -1,3 +1,4 @@
+import { SYSTEM } from "../constants";
 import { ColorSchemePreference, ResolvedScheme, useStore } from "../utils";
 
 export interface UseModeYeild {
@@ -18,14 +19,14 @@ export interface UseModeYeild {
  * @source - Source code
  */
 export const useMode = (): UseModeYeild => {
-  const [{ mode, systemMode }, setState] = useStore();
-  const setMode = (mode: ColorSchemePreference) => {
-    setState(prev => ({ ...prev, mode }));
+  const [{ m: mode, s: systemMode }, setState] = useStore();
+  const setMode = (m: ColorSchemePreference) => {
+    setState(prev => ({ ...prev, m }));
   };
   return {
     mode,
     systemMode,
-    resolvedMode: mode === "system" ? systemMode : mode, // resolvedMode is the actual mode that will be used
+    resolvedMode: (mode === SYSTEM ? systemMode : mode) as ResolvedScheme, // resolvedMode is the actual mode that will be used
     setMode,
   };
 };

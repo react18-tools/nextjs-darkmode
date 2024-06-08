@@ -1,6 +1,7 @@
-import { HTMLProps, useCallback } from "react";
+import { HTMLProps } from "react";
 import styles from "./switch.module.scss";
-import { modes, useStore } from "../../utils";
+import { useStore } from "../../utils";
+import { modes } from "../../constants";
 
 export interface SwitchProps extends HTMLProps<HTMLElement> {
   /** html tag @defaultValue 'button' */
@@ -23,14 +24,14 @@ export interface SwitchProps extends HTMLProps<HTMLElement> {
  */
 export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }: SwitchProps) => {
   const [state, setState] = useStore();
-  const handleModeSwitch = useCallback(() => {
-    let index = modes.indexOf(state.mode);
+  const handleModeSwitch = () => {
+    let index = modes.indexOf(state.m);
     if (skipSystem && index === modes.length - 1) index = 0;
     setState({
       ...state,
-      mode: modes[(index + 1) % modes.length],
+      m: modes[(index + 1) % modes.length],
     });
-  }, []);
+  };
   const className = [props.className, styles["switch"]].filter(Boolean).join(" ");
   return (
     <Tag
