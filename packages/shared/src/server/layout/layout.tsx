@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styles from "./layout.module.scss";
 import { ForkMe } from "@mayank1513/fork-me/server";
 import config from "@repo/scripts/rebrand.config.json";
-import "nextjs-darkmode/dist/index.css";
+import "nextjs-darkmode/css";
 
 const { owner, repo } = config;
 interface LayoutProps {

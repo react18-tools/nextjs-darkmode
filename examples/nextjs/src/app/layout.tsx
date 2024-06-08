@@ -1,6 +1,6 @@
 import "./styles.css";
 import "react18-loaders/dist/index.css";
-import { ServerTarget } from "nextjs-darkmode/dist/server";
+import { ServerTarget } from "nextjs-darkmode/server";
 import { Core } from "nextjs-darkmode";
 import { Layout } from "@repo/shared/dist/server";
 import { GlobalLoader, Header } from "@repo/shared";

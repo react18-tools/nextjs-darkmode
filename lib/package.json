@@ -15,6 +15,13 @@
   "files": [
     "dist/**"
   ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./switch": "./dist/client/switch/index.js",
+    "./server": "./dist/server/index.js",
+    "./hooks": "./dist/hooks/index.js",
+    "./css": "./dist/client/switch/index.css"
+  },
   "scripts": {
     "build": "tsup && tsc -p tsconfig-build.json",
     "clean": "rm -rf dist",

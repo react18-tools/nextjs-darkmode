@@ -1,10 +1,10 @@
 "use client";
 
-import { useMode } from "nextjs-darkmode/dist/hooks";
+import { useMode } from "nextjs-darkmode/hooks";
 import styles from "./header.module.scss";
-import { KeyboardEvent, useCallback } from "react";
-import { ColorSchemePreference } from "nextjs-darkmode/dist/utils";
-import { Switch } from "nextjs-darkmode";
+import { useCallback } from "react";
+import { ColorSchemePreference } from "nextjs-darkmode";
+import { Switch } from "nextjs-darkmode/switch";
 
 const modes: ColorSchemePreference[] = ["dark", "light", "system"];
 
@@ -16,21 +16,10 @@ export default function ThemeSwitch() {
     setMode(modes[(index + 1) % modes.length]);
   }, [mode]);
 
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Enter") toggle();
-    },
-    [toggle],
-  );
   return (
-    <div
-      tabIndex={0}
-      role="button"
-      className={styles.themeswitch}
-      onClick={toggle}
-      onKeyDown={onKeyDown}>
-      <Switch />
+    <button className={styles.themeswitch} onClick={toggle}>
+      <Switch tag="div" />
       <span className="mb">{mode}</span>
-    </div>
+    </button>
   );
 }
