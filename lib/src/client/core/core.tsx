@@ -1,4 +1,4 @@
-import { COOKIE_KEY, DARK, LIGHT, SYSTEM, modes } from "../../constants";
+import { COOKIE_KEY, DARK, LIGHT, MAX_AGE, SYSTEM, modes } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
@@ -63,7 +63,7 @@ export const Core = ({ t }: CoreProps) => {
       ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
     });
     localStorage.setItem(COOKIE_KEY, `${mode},${systemMode}`);
-    documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode}; max-age=31536000; SameSite=Strict;`;
+    documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=${MAX_AGE};SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
 
   return null;
