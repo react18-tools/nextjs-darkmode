@@ -1,3 +1,4 @@
+import { COOKIE_KEY } from "../../key.const";
 import { modes, useStore } from "../../utils";
 import { useEffect } from "react";
 
@@ -6,7 +7,6 @@ export interface CoreProps {
   t?: string;
 }
 
-const key = "gx";
 const parseState = (state: string | null) =>
   state ? JSON.parse(state) : { mode: "light", systemMode: "light" };
 
@@ -33,10 +33,10 @@ export const Core = ({ t }: CoreProps) => {
     updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
 
-    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
+    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(COOKIE_KEY)) }));
     /** Sync the tabs */
     const storageListener = (e: StorageEvent): void => {
-      if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
+      if (e.key === COOKIE_KEY) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
     addEventListener("storage", storageListener);
     return () => {
@@ -47,15 +47,19 @@ export const Core = ({ t }: CoreProps) => {
 
   useEffect(() => {
     const documentEl = document.documentElement;
-    const clsList = documentEl.classList;
-    modes.forEach(mode => clsList.remove(mode));
-    clsList.add(resolvedMode);
-    [
-      ["sm", systemMode],
-      ["rm", resolvedMode],
-      ["m", mode],
-    ].forEach(([dataLabel, value]) => documentEl.setAttribute(`data-${dataLabel}`, value));
-    localStorage.setItem(key, JSON.stringify({ mode, systemMode }));
+    [documentEl, document.querySelector("[data-ndm='ndm']")].forEach(el => {
+      if (!el) return;
+      const clsList = el.classList;
+      modes.forEach(mode => clsList.remove(mode));
+      clsList.add(resolvedMode);
+      [
+        ["sm", systemMode],
+        ["rm", resolvedMode],
+        ["m", mode],
+      ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
+    });
+    localStorage.setItem(COOKIE_KEY, JSON.stringify({ mode, systemMode }));
+    document.cookie = `${COOKIE_KEY}=${resolvedMode}; max-age=31536000; SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
 
   return null;

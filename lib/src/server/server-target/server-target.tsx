@@ -1,25 +1,20 @@
-import { HTMLProps, ReactNode } from "react";
-import styles from "./server-target.module.scss";
-
-export interface ServerTargetProps extends HTMLProps<HTMLDivElement> {
-	children?: ReactNode;
-}
+import { cookies } from "next/headers";
+import { COOKIE_KEY } from "../../key.const";
 
 /**
- * 
- *
+ * Server Side target for avoiding flash of un-themed content.
  * @example
  * ```tsx
- * <ServerTarget />
+ * <html>
+ *   ...
+ *   <body>
+ *     <ServerTarget />
+ *     ...
+ *   </body>
+ * </html>
  * ```
- * 
- * @source - Source code
  */
-export const ServerTarget = ({ children, ...props }: ServerTargetProps) => {
-  const className = [props.className, styles["server-target"]].filter(Boolean).join(" ");
-	return (
-		<div {...props} className={className} data-testid="server-target">
-			{children}
-		</div>
-	);
-}
+export const ServerTarget = () => {
+  const rm = cookies().get(COOKIE_KEY)?.value ?? "light";
+  return <div className={rm} data-rm={rm} data-ndm="ndm" data-testid="server-target" />;
+};
