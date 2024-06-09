@@ -3,6 +3,7 @@ import { COOKIE_KEY, LIGHT } from "../../constants";
 
 /**
  * Server Side target for avoiding flash of un-themed content.
+ *
  * @example
  * ```tsx
  * <html>
@@ -13,6 +14,8 @@ import { COOKIE_KEY, LIGHT } from "../../constants";
  *   </body>
  * </html>
  * ```
+ *
+ * @source - Source code
  */
 export const ServerTarget = () => {
   const rm = cookies().get(COOKIE_KEY)?.value ?? LIGHT;

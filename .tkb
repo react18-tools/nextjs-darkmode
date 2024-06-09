@@ -125,6 +125,11 @@
       "id": "W_uPAM5Vm86aJ8yEEMKHh",
       "description": "Update examples\n- Add example for tailwind",
       "columnId": "column-todo"
+    },
+    "zE0aqgk59cyZ95s5TkECd": {
+      "id": "zE0aqgk59cyZ95s5TkECd",
+      "description": "Update doc comments",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -132,7 +137,8 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "W_uPAM5Vm86aJ8yEEMKHh"
+        "W_uPAM5Vm86aJ8yEEMKHh",
+        "zE0aqgk59cyZ95s5TkECd"
       ]
     },
     {
