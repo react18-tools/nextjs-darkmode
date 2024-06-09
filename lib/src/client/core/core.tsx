@@ -66,7 +66,11 @@ export const Core = ({ t }: CoreProps) => {
   useEffectMinify(() => {
     const documentMinify = document;
     const restoreTransitions = modifyTransition(documentMinify, t);
-    [documentMinify.documentElement, documentMinify.querySelector("[data-ndm]")].forEach(el => {
+    const serverTargetEl = documentMinify.querySelector("[data-ndm]");
+    // We need to always update documentElement to support Tailwind configuration
+    // skipcq: JS-D008, JS-0042 -> map keyword is shorter
+    [documentMinify.documentElement, serverTargetEl].map(el => {
+      // skipcq: JS-0042
       if (!el) return;
       const clsList = el.classList;
       modes.forEach(mode => clsList.remove(mode));
@@ -80,7 +84,8 @@ export const Core = ({ t }: CoreProps) => {
     restoreTransitions();
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(COOKIE_KEY, mode);
-    documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=${MAX_AGE};SameSite=Strict;`;
+    if (serverTargetEl)
+      documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=${MAX_AGE};SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
 
   return null;
