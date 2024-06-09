@@ -155,7 +155,7 @@ An elegant color switch to toggle color schemes:
 
 Fully support dark mode, including system preference with `prefers-color-scheme`. The dark/light mode is synced between tabs and modifies the `className` and data-attributes on the `html` or ServerTarget element:
 
-````css
+```css
 :root {
   --background: white;
   --foreground: black;
@@ -169,7 +169,7 @@ Fully support dark mode, including system preference with `prefers-color-scheme`
 /* or */
 
 [data-rm="dark"] {...}
-
+```
 
 When using `ServerTarget`, use the CSS general sibling combinator (~):
 
@@ -182,10 +182,12 @@ When using `ServerTarget`, use the CSS general sibling combinator (~):
 }
 ```
 
-#### data attributes
+#### Using the data-attributes
 
 `data-rm` -> Resolved Mode
+
 `data-m` -> User's preference
+
 `data-sm` -> System preference
 
 ### Images
@@ -335,4 +337,3 @@ Please consider enrolling in [our courses](https://mayank-chaudhari.vercel.app/c
 <hr />
 
 <p align="center" style="text-align:center">with 💖 by <a href="https://mayank-chaudhari.vercel.app" target="_blank">Mayank Kumar Chaudhari</a></p>
-````
