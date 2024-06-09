@@ -3,7 +3,6 @@ import { ColorSchemePreference, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
 const useEffectMinify = useEffect;
-const localStorageMinify = localStorage;
 export interface CoreProps {
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   t?: string;
@@ -50,7 +49,7 @@ export const Core = ({ t }: CoreProps) => {
 
     setThemeState(state => ({
       ...state,
-      m: (localStorageMinify?.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
+      m: (localStorage.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
     }));
     /** Sync the tabs */
     const storageListener = (e: StorageEvent): void => {
@@ -80,7 +79,7 @@ export const Core = ({ t }: CoreProps) => {
     });
     restoreTransitions();
     // System mode is decided by current system state and need not be stored in localStorage
-    localStorageMinify?.setItem(COOKIE_KEY, mode);
+    localStorage.setItem(COOKIE_KEY, mode);
     if (serverTargetEl)
       documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode, t]);
