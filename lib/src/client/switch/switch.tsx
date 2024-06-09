@@ -13,11 +13,11 @@ export interface SwitchProps extends HTMLProps<HTMLElement> {
 }
 
 /**
- *
+ * Switch button to quickly toggle user preference.
  *
  * @example
  * ```tsx
- * <Switch />
+ * <Switch [size={20} skipSystem]/>
  * ```
  *
  * @source - Source code

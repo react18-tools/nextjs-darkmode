@@ -9,6 +9,7 @@ export interface CoreProps {
   t?: string;
 }
 
+/** Modify transition globally to avoid patched transitions */
 const modifyTransition = (documentMinify: Document, themeTransition = "none") => {
   const css = documentMinify.createElement("style");
   /** split by ';' to prevent CSS injection */
@@ -25,11 +26,12 @@ const modifyTransition = (documentMinify: Document, themeTransition = "none") =>
 };
 
 /**
- *
+ *  The Core component wich applies classes and transitions.
+ * Cookies are set only if corresponding ServerTarget is detected.
  *
  * @example
  * ```tsx
- * <Core />
+ * <Core [t="background-color .3s"]/>
  * ```
  *
  * @source - Source code
@@ -48,7 +50,7 @@ export const Core = ({ t }: CoreProps) => {
 
     setThemeState(state => ({
       ...state,
-      m: (localStorageMinify.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
+      m: (localStorageMinify?.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
     }));
     /** Sync the tabs */
     const storageListener = (e: StorageEvent): void => {
@@ -78,7 +80,7 @@ export const Core = ({ t }: CoreProps) => {
     });
     restoreTransitions();
     // System mode is decided by current system state and need not be stored in localStorage
-    localStorageMinify.setItem(COOKIE_KEY, mode);
+    localStorageMinify?.setItem(COOKIE_KEY, mode);
     if (serverTargetEl)
       documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode, t]);

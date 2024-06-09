@@ -9,11 +9,11 @@ export interface UseModeYeild {
 }
 
 /**
- *
+ * use this hook to gain access to mode state and setter.
  *
  * @example
  * ```tsx
- * const [] = useMode(options);
+ * const {resolvedMode, setMode} = useMode(options);
  * ```
  *
  * @source - Source code
