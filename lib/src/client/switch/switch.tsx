@@ -27,10 +27,11 @@ export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }:
   /** toggle mode */
   const handleModeSwitch = () => {
     let index = modes.indexOf(state.m);
-    if (skipSystem && index === modes.length - 1) index = 0;
+    const n = modes.length;
+    if (skipSystem && index === n - 1) index = 0;
     setState({
       ...state,
-      m: modes[(index + 1) % modes.length],
+      m: modes[(index + 1) % n],
     });
   };
   const className = [props.className, styles["switch"]].filter(Boolean).join(" ");

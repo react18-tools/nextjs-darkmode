@@ -129,7 +129,7 @@
     "zE0aqgk59cyZ95s5TkECd": {
       "id": "zE0aqgk59cyZ95s5TkECd",
       "description": "Update doc comments",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     }
   },
   "columns": [
@@ -137,8 +137,7 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "W_uPAM5Vm86aJ8yEEMKHh",
-        "zE0aqgk59cyZ95s5TkECd"
+        "W_uPAM5Vm86aJ8yEEMKHh"
       ]
     },
     {
@@ -150,6 +149,7 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "zE0aqgk59cyZ95s5TkECd",
         "O1qAByMoxhHOR-a_guL91",
         "FDFqCQvLm2mUlnTJ3Gna5",
         "RX4J5v4y5IOe_ucf8pMRT",
