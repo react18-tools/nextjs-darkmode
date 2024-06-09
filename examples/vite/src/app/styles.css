@@ -1,4 +1,7 @@
 @import "react18-loaders/dist";
+@import "@repo/shared/dist";
+@import "@repo/shared/dist/global.css";
+@import "nextjs-darkmode/css";
 
 .container {
   min-height: 100vh;
