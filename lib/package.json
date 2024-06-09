@@ -16,10 +16,26 @@
     "dist/**"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./switch": "./dist/client/switch/index.js",
-    "./server": "./dist/server/index.js",
-    "./hooks": "./dist/hooks/index.js",
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./switch": {
+      "require": "./dist/client/switch/index.js",
+      "import": "./dist/client/switch/index.mjs",
+      "types": "./dist/client/switch/index.d.ts"
+    },
+    "./server": {
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.mjs",
+      "types": "./dist/server/index.d.ts"
+    },
+    "./hooks": {
+      "require": "./dist/hooks/index.js",
+      "import": "./dist/hooks/index.mjs",
+      "types": "./dist/hooks/index.d.ts"
+    },
     "./css": "./dist/client/switch/index.css"
   },
   "scripts": {
