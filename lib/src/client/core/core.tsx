@@ -11,18 +11,15 @@ export interface CoreProps {
 const modifyTransition = (documentMinify: Document, themeTransition = "none") => {
   const css = documentMinify.createElement("style");
   /** split by ';' to prevent CSS injection */
-  css.appendChild(
-    documentMinify.createTextNode(`*{transition:${themeTransition.split(";")[0]} !important;}`),
-  );
-  documentMinify.head.appendChild(css);
+  css.textContent = `*{transition:${themeTransition.split(";")[0]} !important;}`;
+  const head = documentMinify.head;
+  head.appendChild(css);
 
   return () => {
     // Force restyle
     getComputedStyle(documentMinify.body);
     // Wait for next tick before removing
-    setTimeout(() => {
-      documentMinify.head.removeChild(css);
-    }, 1);
+    setTimeout(() => head.removeChild(css), 1);
   };
 };
 
@@ -83,7 +80,7 @@ export const Core = ({ t }: CoreProps) => {
     localStorage.setItem(COOKIE_KEY, mode);
     if (serverTargetEl)
       documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
-  }, [resolvedMode, systemMode, mode]);
+  }, [resolvedMode, systemMode, mode, t]);
 
   return null;
 };
