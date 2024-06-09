@@ -64,7 +64,7 @@
     "1dRWJhy45E1Rq5wZAmPHt": {
       "id": "1dRWJhy45E1Rq5wZAmPHt",
       "description": "Update README as required",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "5vS1JNXoMhDl5IBljwh2v": {
       "id": "5vS1JNXoMhDl5IBljwh2v",
@@ -89,12 +89,12 @@
     "0499BqWDwJ5cxqtC9Nr82": {
       "id": "0499BqWDwJ5cxqtC9Nr82",
       "description": "Feel free to star this template, contribute, and/or sponsor the [`terborepo-template`](https://github.com/react18-tools/turborepo-template) project or my [other open-source work](https://github.com/sponsors/mayank1513)",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "IjuAtNquJ4-Ut874rHKIW": {
       "id": "IjuAtNquJ4-Ut874rHKIW",
       "description": "You can also fork the [`terborepo-template`](https://github.com/react18-tools/turborepo-template/fork) and add your package to `scripts/featured.json`\n  - If approved, your package will be automatically added to FEATURED.md and also published on the home page of this repo.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "t5d22lVYbF7GuQHzv6DRO": {
       "id": "t5d22lVYbF7GuQHzv6DRO",
@@ -125,6 +125,11 @@
       "id": "ltOP38szvwpGAruTRbxOq",
       "description": "ServerTarget\n- to sync theme with the help of server components --- avoid jitter of unthemed page",
       "columnId": "column-done"
+    },
+    "hBTyeXLx4fIQE1q5qatqF": {
+      "id": "hBTyeXLx4fIQE1q5qatqF",
+      "description": "Add publish scripts for lite version",
+      "columnId": "column-done"
     }
   },
   "columns": [
@@ -143,13 +148,10 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "1dRWJhy45E1Rq5wZAmPHt",
         "5vS1JNXoMhDl5IBljwh2v",
         "55DAZwduwTvlaxaJC8hlX",
         "FDFqCQvLm2mUlnTJ3Gna5",
-        "O1qAByMoxhHOR-a_guL91",
-        "0499BqWDwJ5cxqtC9Nr82",
-        "IjuAtNquJ4-Ut874rHKIW"
+        "O1qAByMoxhHOR-a_guL91"
       ]
     },
     {
@@ -163,7 +165,11 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "hBTyeXLx4fIQE1q5qatqF",
+        "1dRWJhy45E1Rq5wZAmPHt",
         "_BfuX7quWBANpDK1bI7YM",
+        "IjuAtNquJ4-Ut874rHKIW",
+        "0499BqWDwJ5cxqtC9Nr82",
         "ltOP38szvwpGAruTRbxOq",
         "bjrSIW2boIWsI4h74nxXl",
         "1jEMZiPKJSVpEMu6ZxfpX",
