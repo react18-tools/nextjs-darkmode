@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 0.0.3
+
+### Patch Changes
+
+- Optimize minzip size
+
 ## 0.0.2
 
 ### Patch Changes
