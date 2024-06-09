@@ -29,22 +29,17 @@
     "RX4J5v4y5IOe_ucf8pMRT": {
       "id": "RX4J5v4y5IOe_ucf8pMRT",
       "description": "🌟 Enable [private vulnerability reporting](https://github.com/react18-tools/nextjs-darkmode/security) (For public repo - do this after updating visibility to public)",
-      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
+      "columnId": "column-done"
     },
     "EdPbrbJLllUHfZmCS80f7": {
       "id": "EdPbrbJLllUHfZmCS80f7",
       "description": "Set up `CodeCov`\n  - Visit Codecov and set up your repo\n  - Create [repository secret]((https://github.com/react18-tools/nextjs-darkmode/settings/secrets/actions)) for `CODECOV_TOKEN`",
-      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
+      "columnId": "column-done"
     },
     "MLLUsAhCKaKxvEXFY0HSq": {
       "id": "MLLUsAhCKaKxvEXFY0HSq",
       "description": "Set up `CodeClimate`\n  - Visit CodeClimate and set up your repo\n  - Create [repository secret] for `CC_TEST_REPORTER_ID`\n  - Add `*.test.*` to ignore patterns on the website\n  - Update Code Climate badge",
-      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
-    },
-    "gMYfaAh2RABMP8uZRQgNx": {
-      "id": "gMYfaAh2RABMP8uZRQgNx",
-      "description": "Add `NPM_AUTH_TOKEN` to repository secrets to automate package publishing\n  - Log in to your [`npm` account](https://www.npmjs.com/login) and create an automation token\n  - Create a new repository secret `NPM_AUTH_TOKEN`",
-      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
+      "columnId": "column-done"
     },
     "_BfuX7quWBANpDK1bI7YM": {
       "id": "_BfuX7quWBANpDK1bI7YM",
@@ -54,12 +49,7 @@
     "dC7QDBLH8BmHUfaYmIt81": {
       "id": "dC7QDBLH8BmHUfaYmIt81",
       "description": "(Optional) Add Repo Stats by visiting and setting up [repobeats](https://repobeats.axiom.co/)",
-      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
-    },
-    "P_NrSJQ8m91Odgz8E1fS6": {
-      "id": "P_NrSJQ8m91Odgz8E1fS6",
-      "description": "Create your library and update examples",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "1dRWJhy45E1Rq5wZAmPHt": {
       "id": "1dRWJhy45E1Rq5wZAmPHt",
@@ -69,22 +59,22 @@
     "5vS1JNXoMhDl5IBljwh2v": {
       "id": "5vS1JNXoMhDl5IBljwh2v",
       "description": "Set up GitHub pages to deploy docs\n  - Go to [repo settings](https://github.com/react18-tools/nextjs-darkmode/settings/pages) -> pages (On the left panel); Select deploy from a branch; Then Select `main` and `/docs`",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "55DAZwduwTvlaxaJC8hlX": {
       "id": "55DAZwduwTvlaxaJC8hlX",
       "description": "(Optional) Set up [Deepsource](https://app.deepsource.com/login) for static code analysis",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "FDFqCQvLm2mUlnTJ3Gna5": {
       "id": "FDFqCQvLm2mUlnTJ3Gna5",
       "description": "Push your changes/Create PR and see your library being automatically tested and published",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "O1qAByMoxhHOR-a_guL91": {
       "id": "O1qAByMoxhHOR-a_guL91",
       "description": "Optionally deploy your examples to Vercel.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "0499BqWDwJ5cxqtC9Nr82": {
       "id": "0499BqWDwJ5cxqtC9Nr82",
@@ -130,41 +120,38 @@
       "id": "hBTyeXLx4fIQE1q5qatqF",
       "description": "Add publish scripts for lite version",
       "columnId": "column-done"
+    },
+    "W_uPAM5Vm86aJ8yEEMKHh": {
+      "id": "W_uPAM5Vm86aJ8yEEMKHh",
+      "description": "Update examples\n- Add example for tailwind",
+      "columnId": "column-todo"
     }
   },
   "columns": [
     {
-      "id": "column-pt2ugzcf8q7SLrQICXDE5",
-      "title": "on hold",
-      "tasksIds": [
-        "dC7QDBLH8BmHUfaYmIt81",
-        "gMYfaAh2RABMP8uZRQgNx",
-        "MLLUsAhCKaKxvEXFY0HSq",
-        "EdPbrbJLllUHfZmCS80f7",
-        "RX4J5v4y5IOe_ucf8pMRT"
-      ]
-    },
-    {
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "5vS1JNXoMhDl5IBljwh2v",
-        "55DAZwduwTvlaxaJC8hlX",
-        "FDFqCQvLm2mUlnTJ3Gna5",
-        "O1qAByMoxhHOR-a_guL91"
+        "W_uPAM5Vm86aJ8yEEMKHh"
       ]
     },
     {
       "id": "column-doing",
       "title": "Doing",
-      "tasksIds": [
-        "P_NrSJQ8m91Odgz8E1fS6"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "O1qAByMoxhHOR-a_guL91",
+        "FDFqCQvLm2mUlnTJ3Gna5",
+        "RX4J5v4y5IOe_ucf8pMRT",
+        "EdPbrbJLllUHfZmCS80f7",
+        "MLLUsAhCKaKxvEXFY0HSq",
+        "dC7QDBLH8BmHUfaYmIt81",
+        "55DAZwduwTvlaxaJC8hlX",
+        "5vS1JNXoMhDl5IBljwh2v",
         "hBTyeXLx4fIQE1q5qatqF",
         "1dRWJhy45E1Rq5wZAmPHt",
         "_BfuX7quWBANpDK1bI7YM",

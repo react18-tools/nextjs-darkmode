@@ -1,6 +1,6 @@
 # Nextjs Darkmode <img src="https://github.com/react18-tools/nextjs-darkmode/blob/main/popper.png?raw=true" style="height: 40px"/>
 
-[![test](https://github.com/react18-tools/nextjs-darkmode/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-darkmode/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/aa896ec14c570f3bb274/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-darkmode/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-darkmode/graph/badge.svg)](https://codecov.io/gh/react18-tools/nextjs-darkmode) [![Version](https://img.shields.io/npm/v/nextjs-darkmode.svg?colorB=green)](https://www.npmjs.com/package/nextjs-darkmode) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-darkmode.svg)](https://www.npmjs.com/package/nextjs-darkmode) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-darkmode) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![test](https://github.com/react18-tools/nextjs-darkmode/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-darkmode/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/ebffdafb7f4984d742b6/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-darkmode/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-darkmode/graph/badge.svg)](https://codecov.io/gh/react18-tools/nextjs-darkmode) [![Version](https://img.shields.io/npm/v/nextjs-darkmode.svg?colorB=green)](https://www.npmjs.com/package/nextjs-darkmode) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/d18m/nextjs-darkmode.svg)](https://www.npmjs.com/package/nextjs-darkmode) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nextjs-darkmode) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 
 Nextjs Darkmode is a versatile library crafted to fully utilize React 18 server components, ensuring a seamless dark mode experience in Next.js applications. Lightweight and efficient, it respects both user preferences and system settings through the prefers-color-scheme media query, and integrates effortlessly with React/Vite, Remix, and Next.js.
 
@@ -322,7 +322,7 @@ Explore hands-on courses to get started with Turborepo:
 - [React and Next.js with TypeScript](https://mayank-chaudhari.vercel.app/courses/react-and-next-js-with-typescript)
 - [The Game of Chess with Next.js, React, and TypeScript](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
 
-![Repo Stats](https://repobeats.axiom.co/api/embed/85eec5cd9a0ede65ac366f834ada1a170ef775c8.svg "Repobeats analytics image")
+![Repo Stats](https://repobeats.axiom.co/api/embed/1de49d3f98af85faaf462974a990ac2f51d13041.svg "Repobeats analytics image")
 
 ## License
 
