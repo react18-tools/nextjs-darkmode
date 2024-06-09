@@ -29,32 +29,32 @@
     "RX4J5v4y5IOe_ucf8pMRT": {
       "id": "RX4J5v4y5IOe_ucf8pMRT",
       "description": "🌟 Enable [private vulnerability reporting](https://github.com/react18-tools/nextjs-darkmode/security) (For public repo - do this after updating visibility to public)",
-      "columnId": "column-todo"
+      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
     },
     "EdPbrbJLllUHfZmCS80f7": {
       "id": "EdPbrbJLllUHfZmCS80f7",
       "description": "Set up `CodeCov`\n  - Visit Codecov and set up your repo\n  - Create [repository secret]((https://github.com/react18-tools/nextjs-darkmode/settings/secrets/actions)) for `CODECOV_TOKEN`",
-      "columnId": "column-todo"
+      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
     },
     "MLLUsAhCKaKxvEXFY0HSq": {
       "id": "MLLUsAhCKaKxvEXFY0HSq",
       "description": "Set up `CodeClimate`\n  - Visit CodeClimate and set up your repo\n  - Create [repository secret] for `CC_TEST_REPORTER_ID`\n  - Add `*.test.*` to ignore patterns on the website\n  - Update Code Climate badge",
-      "columnId": "column-todo"
+      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
     },
     "gMYfaAh2RABMP8uZRQgNx": {
       "id": "gMYfaAh2RABMP8uZRQgNx",
       "description": "Add `NPM_AUTH_TOKEN` to repository secrets to automate package publishing\n  - Log in to your [`npm` account](https://www.npmjs.com/login) and create an automation token\n  - Create a new repository secret `NPM_AUTH_TOKEN`",
-      "columnId": "column-todo"
+      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
     },
     "_BfuX7quWBANpDK1bI7YM": {
       "id": "_BfuX7quWBANpDK1bI7YM",
       "description": "Update description in `lib/package.json`",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "dC7QDBLH8BmHUfaYmIt81": {
       "id": "dC7QDBLH8BmHUfaYmIt81",
       "description": "(Optional) Add Repo Stats by visiting and setting up [repobeats](https://repobeats.axiom.co/)",
-      "columnId": "column-todo"
+      "columnId": "column-pt2ugzcf8q7SLrQICXDE5"
     },
     "P_NrSJQ8m91Odgz8E1fS6": {
       "id": "P_NrSJQ8m91Odgz8E1fS6",
@@ -109,35 +109,40 @@
     "IhVejTgkQc-m8XY1b6KXw": {
       "id": "IhVejTgkQc-m8XY1b6KXw",
       "description": "Core Component\n- Toggle theme -- by toggling className\n- listen to changes in prefer-color-scheme\n- sync betweeen tabs, etc.",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "1jEMZiPKJSVpEMu6ZxfpX": {
       "id": "1jEMZiPKJSVpEMu6ZxfpX",
       "description": "useMode hook\n- Providing themeState -- mode, resolvedMode, systemColorScheme, setMode",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "bjrSIW2boIWsI4h74nxXl": {
       "id": "bjrSIW2boIWsI4h74nxXl",
       "description": "switch\n- UI switch to toggle modes",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "ltOP38szvwpGAruTRbxOq": {
       "id": "ltOP38szvwpGAruTRbxOq",
       "description": "ServerTarget\n- to sync theme with the help of server components --- avoid jitter of unthemed page",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     }
   },
   "columns": [
     {
+      "id": "column-pt2ugzcf8q7SLrQICXDE5",
+      "title": "on hold",
+      "tasksIds": [
+        "dC7QDBLH8BmHUfaYmIt81",
+        "gMYfaAh2RABMP8uZRQgNx",
+        "MLLUsAhCKaKxvEXFY0HSq",
+        "EdPbrbJLllUHfZmCS80f7",
+        "RX4J5v4y5IOe_ucf8pMRT"
+      ]
+    },
+    {
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "RX4J5v4y5IOe_ucf8pMRT",
-        "EdPbrbJLllUHfZmCS80f7",
-        "MLLUsAhCKaKxvEXFY0HSq",
-        "gMYfaAh2RABMP8uZRQgNx",
-        "_BfuX7quWBANpDK1bI7YM",
-        "dC7QDBLH8BmHUfaYmIt81",
         "P_NrSJQ8m91Odgz8E1fS6",
         "1dRWJhy45E1Rq5wZAmPHt",
         "5vS1JNXoMhDl5IBljwh2v",
@@ -151,17 +156,17 @@
     {
       "id": "column-doing",
       "title": "Doing",
-      "tasksIds": [
-        "IhVejTgkQc-m8XY1b6KXw",
-        "1jEMZiPKJSVpEMu6ZxfpX",
-        "bjrSIW2boIWsI4h74nxXl",
-        "ltOP38szvwpGAruTRbxOq"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "_BfuX7quWBANpDK1bI7YM",
+        "ltOP38szvwpGAruTRbxOq",
+        "bjrSIW2boIWsI4h74nxXl",
+        "1jEMZiPKJSVpEMu6ZxfpX",
+        "IhVejTgkQc-m8XY1b6KXw",
         "jdZxwLymOo7w2eZeNpvsN",
         "jcpymbi71e702p7n6fwvZ",
         "Y5__aEZl3Pbxp7r90HKpV",
