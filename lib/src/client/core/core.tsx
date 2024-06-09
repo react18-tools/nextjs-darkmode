@@ -1,5 +1,5 @@
 import { COOKIE_KEY, DARK, LIGHT, MAX_AGE, SYSTEM, modes } from "../../constants";
-import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
+import { ColorSchemePreference, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
 const useEffectMinify = useEffect;
@@ -7,17 +7,6 @@ export interface CoreProps {
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   t?: string;
 }
-
-const parseState = (state: string | null) => {
-  if (state) {
-    const [m, s] = state.split(",") as [ColorSchemePreference, ResolvedScheme];
-    return { m, s };
-  }
-  return {
-    m: SYSTEM,
-    s: LIGHT as ResolvedScheme,
-  };
-};
 
 const modifyTransition = (documentMinify: Document, themeTransition = "none") => {
   const css = documentMinify.createElement("style");
@@ -62,10 +51,14 @@ export const Core = ({ t }: CoreProps) => {
     updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
 
-    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(COOKIE_KEY)) }));
+    setThemeState(state => ({
+      ...state,
+      m: (localStorage.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
+    }));
     /** Sync the tabs */
     const storageListener = (e: StorageEvent): void => {
-      if (e.key === COOKIE_KEY) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
+      if (e.key === COOKIE_KEY)
+        setThemeState(state => ({ ...state, m: e.newValue as ColorSchemePreference }));
     };
     addEventListener("storage", storageListener);
   }, []);
@@ -85,7 +78,8 @@ export const Core = ({ t }: CoreProps) => {
       ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
     });
     restoreTransitions();
-    localStorage.setItem(COOKIE_KEY, `${mode},${systemMode}`);
+    // System mode is decided by current system state and need not be stored in localStorage
+    localStorage.setItem(COOKIE_KEY, mode);
     documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=${MAX_AGE};SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
 

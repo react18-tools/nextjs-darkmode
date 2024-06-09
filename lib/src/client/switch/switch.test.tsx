@@ -1,13 +1,37 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, renderHook, screen } from "@testing-library/react";
 import { afterEach, describe, test } from "vitest";
+import { useMode } from "../../hooks";
 import { Switch } from "./switch";
 
-describe.concurrent("switch", () => {
-	afterEach(cleanup);
+describe("switch", () => {
+  afterEach(cleanup);
 
-	test("Dummy test - test if renders without errors", ({ expect }) => {
-		const clx = "my-class";
-		render(<Switch className={clx} />);
-		expect(screen.getByTestId("switch").classList).toContain(clx);
-	});
+  test("color-scheme-toggle", async ({ expect }) => {
+    const hook = renderHook(() => useMode());
+    render(<Switch />);
+    const element = screen.getByTestId("switch");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("dark");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("light");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("system");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("dark");
+  });
+
+  test("color-scheme-toggle with skip system", async ({ expect }) => {
+    const hook = renderHook(() => useMode());
+    act(() => {
+      hook.result.current.setMode("system");
+    });
+    render(<Switch skipSystem />);
+    const element = screen.getByTestId("switch");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("dark");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("light");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.mode).toBe("dark");
+  });
 });
