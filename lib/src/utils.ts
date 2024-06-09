@@ -13,4 +13,5 @@ const DEFAULT_STORE_VAL: Store = {
   s: DARK as ResolvedScheme,
 };
 
+/** local abstaction of RGS to avoid multiple imports */
 export const useStore = () => useRGS<Store>("ndm", DEFAULT_STORE_VAL);

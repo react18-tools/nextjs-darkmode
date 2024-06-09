@@ -24,6 +24,7 @@ export interface SwitchProps extends HTMLProps<HTMLElement> {
  */
 export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }: SwitchProps) => {
   const [state, setState] = useStore();
+  /** toggle mode */
   const handleModeSwitch = () => {
     let index = modes.indexOf(state.m);
     if (skipSystem && index === modes.length - 1) index = 0;
@@ -40,6 +41,7 @@ export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }:
       // @ts-expect-error -> we are setting the CSS variable
       style={{ "--size": `${size}px` }}
       data-testid="switch"
+      // skipcq: JS-0417 -> tradeoff between size and best practices
       onClick={handleModeSwitch}
     />
   );

@@ -20,6 +20,7 @@ export interface UseModeYeild {
  */
 export const useMode = (): UseModeYeild => {
   const [{ m: mode, s: systemMode }, setState] = useStore();
+  /** Set user preference */
   const setMode = (m: ColorSchemePreference) => {
     setState(prev => ({ ...prev, m }));
   };
