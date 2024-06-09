@@ -16,13 +16,5 @@ import { COOKIE_KEY, LIGHT } from "../../constants";
  */
 export const ServerTarget = () => {
   const rm = cookies().get(COOKIE_KEY)?.value ?? LIGHT;
-  return (
-    <div
-      className={rm}
-      data-rm={rm}
-      data-ndm="ndm"
-      data-testid="server-target"
-      style={{ transition: "all 0s" }}
-    />
-  );
+  return <div className={rm} data-rm={rm} data-ndm="ndm" data-testid="server-target" />;
 };
