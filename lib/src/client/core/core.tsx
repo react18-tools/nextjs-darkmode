@@ -2,25 +2,23 @@ import { COOKIE_KEY, DARK, LIGHT, SYSTEM, modes } from "../../constants";
 import { ColorSchemePreference, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
-const useEffectMinify = useEffect;
 export interface CoreProps {
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   t?: string;
 }
 
 /** Modify transition globally to avoid patched transitions */
-const modifyTransition = (documentMinify: Document, themeTransition = "none") => {
-  const css = documentMinify.createElement("style");
+const modifyTransition = (themeTransition = "none") => {
+  const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
   css.textContent = `*{transition:${themeTransition.split(";")[0]} !important;}`;
-  const head = documentMinify.head;
-  head.appendChild(css);
+  document.head.appendChild(css);
 
   return () => {
     // Force restyle
-    getComputedStyle(documentMinify.body);
+    getComputedStyle(document.body);
     // Wait for next tick before removing
-    setTimeout(() => head.removeChild(css), 1);
+    setTimeout(() => document.head.removeChild(css), 1);
   };
 };
 
@@ -39,7 +37,7 @@ export const Core = ({ t }: CoreProps) => {
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
   const resolvedMode = mode === SYSTEM ? systemMode : mode; // resolvedMode is the actual mode that will be used
 
-  useEffectMinify(() => {
+  useEffect(() => {
     const media = matchMedia(`(prefers-color-scheme: ${DARK})`);
     /** Updating media: prefers-color-scheme*/
     const updateSystemColorScheme = () =>
@@ -59,13 +57,12 @@ export const Core = ({ t }: CoreProps) => {
     addEventListener("storage", storageListener);
   }, []);
 
-  useEffectMinify(() => {
-    const documentMinify = document;
-    const restoreTransitions = modifyTransition(documentMinify, t);
-    const serverTargetEl = documentMinify.querySelector("[data-ndm]");
+  useEffect(() => {
+    const restoreTransitions = modifyTransition(t);
+    const serverTargetEl = document.querySelector("[data-ndm]");
     // We need to always update documentElement to support Tailwind configuration
     // skipcq: JS-D008, JS-0042 -> map keyword is shorter
-    [documentMinify.documentElement, serverTargetEl].map(el => {
+    [document.documentElement, serverTargetEl].map(el => {
       // skipcq: JS-0042
       if (!el) return;
       const clsList = el.classList;
@@ -81,7 +78,7 @@ export const Core = ({ t }: CoreProps) => {
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(COOKIE_KEY, mode);
     if (serverTargetEl)
-      documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
+      document.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode, t]);
 
   return null;
