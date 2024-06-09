@@ -59,7 +59,7 @@
     "P_NrSJQ8m91Odgz8E1fS6": {
       "id": "P_NrSJQ8m91Odgz8E1fS6",
       "description": "Create your library and update examples",
-      "columnId": "column-todo"
+      "columnId": "column-doing"
     },
     "1dRWJhy45E1Rq5wZAmPHt": {
       "id": "1dRWJhy45E1Rq5wZAmPHt",
@@ -143,7 +143,6 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "P_NrSJQ8m91Odgz8E1fS6",
         "1dRWJhy45E1Rq5wZAmPHt",
         "5vS1JNXoMhDl5IBljwh2v",
         "55DAZwduwTvlaxaJC8hlX",
@@ -156,7 +155,9 @@
     {
       "id": "column-doing",
       "title": "Doing",
-      "tasksIds": []
+      "tasksIds": [
+        "P_NrSJQ8m91Odgz8E1fS6"
+      ]
     },
     {
       "id": "column-done",
