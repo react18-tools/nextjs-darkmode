@@ -1,4 +1,4 @@
-import { COOKIE_KEY, DARK, LIGHT, MAX_AGE, SYSTEM, modes } from "../../constants";
+import { COOKIE_KEY, DARK, LIGHT, SYSTEM, modes } from "../../constants";
 import { ColorSchemePreference, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
@@ -11,11 +11,8 @@ export interface CoreProps {
 const modifyTransition = (documentMinify: Document, themeTransition = "none") => {
   const css = documentMinify.createElement("style");
   /** split by ';' to prevent CSS injection */
-  const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
   css.appendChild(
-    documentMinify.createTextNode(
-      `*{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`,
-    ),
+    documentMinify.createTextNode(`*{transition:${themeTransition.split(";")[0]} !important;}`),
   );
   documentMinify.head.appendChild(css);
 
@@ -85,7 +82,7 @@ export const Core = ({ t }: CoreProps) => {
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(COOKIE_KEY, mode);
     if (serverTargetEl)
-      documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=${MAX_AGE};SameSite=Strict;`;
+      documentMinify.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
   }, [resolvedMode, systemMode, mode]);
 
   return null;
