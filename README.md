@@ -205,6 +205,10 @@ When using `ServerTarget`, use the CSS general sibling combinator (~):
 
 `data-sm` -> System preference
 
+#### Content Security Policy
+
+If you are using CSP rules for CSS files, you can pass `nonce` argument. If `nonce` is not supplied transition styles will not be applied. This may allow patched transitions throught the page in some cases.
+
 ### Images
 
 Show different images based on the current theme:
