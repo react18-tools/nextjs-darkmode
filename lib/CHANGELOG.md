@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 0.1.0
+
+### Minor Changes
+
+- Add nonce to support Content Security Policy
+
 ## 0.0.3
 
 ### Patch Changes
