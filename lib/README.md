@@ -11,18 +11,33 @@ The `nextjs-themes` library was initially created to achieve a similar functiona
 ## Features
 
 - ✅ Simple API to toggle between dark and light modes
+
 - ✅ Perfect dark mode with just 2 lines of code
-- ✅ Compatible with Tailwind CSS
+
+- ✅ Compatible with Tailwind CSS, StyledComponents, emotion, Material UI, ...
+
+- ✅ Secure by design - we support `nonce` when you want to apply Content Security Policy
+
 - ✅ Fully treeshakable (e.g., `import from nextjs-darkmode/hooks`)
+
 - ✅ Full TypeScript support
+
 - ✅ Utilizes React 18 Server components
+
 - ✅ Compatible with all React 18 build systems/tools/frameworks
+
 - ✅ System setting with `prefers-color-scheme`
+
 - ✅ Supports Next.js 13 & 14 `appDir`
+
 - ✅ No flash on load (supports SSG, SSR, ISG, and Server Components)
+
 - ✅ Sync theme across tabs and windows
+
 - ✅ Apply custom transitions when changing themes
+
 - ✅ Manipulate theme via the `useMode` hook
+
 - ✅ No cookies when not using the corresponding `ServerTarget`
 
 - ✅ Comprehensive documentation with [Typedoc](https://react18-tools.github.io/nextjs-darkmode)
@@ -189,6 +204,14 @@ When using `ServerTarget`, use the CSS general sibling combinator (~):
 `data-m` -> User's preference
 
 `data-sm` -> System preference
+
+#### Content Security Policy
+
+If you are using CSP rules for CSS files, you can pass `nonce` argument to the `Core` component. If `nonce` is not supplied transition styles will not be applied. This may allow patched transitions throught the page in some cases.
+
+```tsx
+<Core nonce={yourNonce} t="transition: all .5s" />
+```
 
 ### Images
 
