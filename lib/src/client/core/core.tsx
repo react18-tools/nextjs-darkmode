@@ -5,13 +5,16 @@ import { useEffect } from "react";
 export interface CoreProps {
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   t?: string;
+  /** The nonce value for your Content Security Policy. */
+  nonce?: string;
 }
 
 /** Modify transition globally to avoid patched transitions */
-const modifyTransition = (themeTransition = "none") => {
+const modifyTransition = (themeTransition = "none", nonce = "") => {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
   css.textContent = `*{transition:${themeTransition.split(";")[0]} !important;}`;
+  nonce && css.setAttribute("nonce", nonce);
   document.head.appendChild(css);
 
   return () => {
@@ -33,7 +36,7 @@ const modifyTransition = (themeTransition = "none") => {
  *
  * @source - Source code
  */
-export const Core = ({ t }: CoreProps) => {
+export const Core = ({ t, nonce }: CoreProps) => {
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
   const resolvedMode = mode === SYSTEM ? systemMode : mode; // resolvedMode is the actual mode that will be used
 
@@ -58,7 +61,7 @@ export const Core = ({ t }: CoreProps) => {
   }, []);
 
   useEffect(() => {
-    const restoreTransitions = modifyTransition(t);
+    const restoreTransitions = modifyTransition(t, nonce);
     const serverTargetEl = document.querySelector("[data-ndm]");
     // We need to always update documentElement to support Tailwind configuration
     // skipcq: JS-D008, JS-0042 -> map keyword is shorter
@@ -79,7 +82,7 @@ export const Core = ({ t }: CoreProps) => {
     localStorage.setItem(COOKIE_KEY, mode);
     if (serverTargetEl)
       document.cookie = `${COOKIE_KEY}=${resolvedMode};max-age=31536000;SameSite=Strict;`;
-  }, [resolvedMode, systemMode, mode, t]);
+  }, [resolvedMode, systemMode, mode, t, nonce]);
 
   return null;
 };
