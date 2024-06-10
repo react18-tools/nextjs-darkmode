@@ -207,7 +207,11 @@ When using `ServerTarget`, use the CSS general sibling combinator (~):
 
 #### Content Security Policy
 
-If you are using CSP rules for CSS files, you can pass `nonce` argument. If `nonce` is not supplied transition styles will not be applied. This may allow patched transitions throught the page in some cases.
+If you are using CSP rules for CSS files, you can pass `nonce` argument to the `Core` component. If `nonce` is not supplied transition styles will not be applied. This may allow patched transitions throught the page in some cases.
+
+```tsx
+<Core nonce={yourNonce} t="transition: all .5s" />
+```
 
 ### Images
 
