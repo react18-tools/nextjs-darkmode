@@ -1,5 +1,15 @@
 # @repo/shared
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [05568cb]
+- Updated dependencies [05568cb]
+- Updated dependencies [05568cb]
+- Updated dependencies [59dbc4f]
+  - nextjs-darkmode@0.2.0
+
 ## 0.0.5
 
 ### Patch Changes

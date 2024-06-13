@@ -1,5 +1,17 @@
 # nextjs-darkmode
 
+## 0.2.0
+
+### Minor Changes
+
+- 05568cb: Support children in Switch element. Use case: Theme Switch with mode label.
+- 59dbc4f: Support passing tag to server-target. Use case: replace html element in case SSR is preferred over SSG.
+
+### Patch Changes
+
+- 05568cb: Override pseudo element transitions as well to avoid patched theme transition
+- 05568cb: Refactor: refactor code hoping better minzip size
+
 ## 0.1.1
 
 ### Patch Changes
