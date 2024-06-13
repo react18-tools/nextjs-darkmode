@@ -14,12 +14,11 @@ export const metadata: Metadata = {
 /** Root layout */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <ServerTarget tag="html" lang="en">
       <body className={inter.className}>
         <Core t="background .3s" />
-        <ServerTarget />
         {children}
       </body>
-    </html>
+    </ServerTarget>
   );
 }
