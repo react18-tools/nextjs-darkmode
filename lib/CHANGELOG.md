@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 0.1.1
+
+### Patch Changes
+
+- 70a2236: Fix: FOUC
+
 ## 0.1.0
 
 ### Minor Changes
