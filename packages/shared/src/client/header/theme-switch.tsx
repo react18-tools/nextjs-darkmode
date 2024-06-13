@@ -19,7 +19,9 @@ export default function ThemeSwitch() {
   return (
     <button className={styles.themeswitch} onClick={toggle}>
       <Switch tag="div" />
-      <span className="mb">{mode}</span>
+      <span className="mb" suppressHydrationWarning>
+        {mode}
+      </span>
     </button>
   );
 }
