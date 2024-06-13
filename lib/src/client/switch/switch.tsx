@@ -3,7 +3,7 @@ import styles from "./switch.module.scss";
 import { useStore } from "../../utils";
 import { modes } from "../../constants";
 
-export interface SwitchProps extends HTMLProps<HTMLElement> {
+export interface SwitchProps extends HTMLProps<HTMLButtonElement> {
   /** html tag @defaultValue 'button' */
   tag?: "button" | "div";
   /** Diameter of the color switch */
@@ -22,7 +22,13 @@ export interface SwitchProps extends HTMLProps<HTMLElement> {
  *
  * @source - Source code
  */
-export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }: SwitchProps) => {
+export const Switch = ({
+  tag: Tag = "button",
+  size = 24,
+  skipSystem,
+  children,
+  ...props
+}: SwitchProps) => {
   const [state, setState] = useStore();
   /** toggle mode */
   const handleModeSwitch = () => {
@@ -34,11 +40,27 @@ export const Switch = ({ tag: Tag = "button", size = 24, skipSystem, ...props }:
       m: modes[(index + 1) % n],
     });
   };
-  const className = [props.className, styles["switch"]].filter(Boolean).join(" ");
+  if (children) {
+    return (
+      // @ts-expect-error -- too complex types
+      <Tag
+        suppressHydrationWarning
+        {...props}
+        data-testid="switch"
+        // skipcq: JS-0417
+        onClick={handleModeSwitch}>
+        {/* @ts-expect-error -> we are setting the CSS variable */}
+        <div className={styles.switch} style={{ "--size": `${size}px` }} />
+        {children}
+      </Tag>
+    );
+  }
   return (
     <Tag
+      // Hydration warning is caused when the data from localStorage differs from the default data provided while rendering on server
+      suppressHydrationWarning
       {...props}
-      className={className}
+      className={[props.className, styles.switch].join(" ")}
       // @ts-expect-error -> we are setting the CSS variable
       style={{ "--size": `${size}px` }}
       data-testid="switch"

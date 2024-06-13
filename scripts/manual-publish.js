@@ -50,6 +50,7 @@ const isNotPatch = newMajor !== oldMajor || newMinor !== oldMinor;
 const pushCmd = `git add . && git commit -m "Apply changesets and update CHANGELOG" && git push origin ${BRANCH}`;
 
 if (isNotPatch && BRANCH === DEFAULT_BRANCH) {
+  require("./update-security-md")(`${newMajor}.${newMinor}`, `${oldMajor}.${oldMinor}`);
   execSync(pushCmd);
   /** Create new release branch for every Major or Minor release */
   const releaseBranch = `release-${newMajor}.${newMinor}`;

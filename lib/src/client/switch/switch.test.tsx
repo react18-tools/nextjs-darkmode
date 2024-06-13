@@ -26,7 +26,7 @@ describe("switch", () => {
     act(() => {
       hook.result.current.setMode(SYSTEM);
     });
-    render(<Switch skipSystem />);
+    render(<Switch skipSystem>Switch with children</Switch>);
     const element = screen.getByTestId("switch");
     await act(() => fireEvent.click(element));
     expect(hook.result.current.mode).toBe(DARK);
