@@ -1,13 +1,14 @@
 import { vi } from "vitest";
 
+const mediaListeners: (() => void)[] = [];
 // mock matchMedia
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: vi.fn().mockImplementation((query: string) => ({
     matches: query.includes(window.media),
     media: query,
-    onchange: null,
-    addEventListener: vi.fn(),
+    onchange: () => mediaListeners.forEach(listener => listener()),
+    addEventListener: (listener: () => void) => mediaListeners.push(listener),
     removeEventListener: vi.fn(),
     dispatchEvent: vi.fn(),
   })),
