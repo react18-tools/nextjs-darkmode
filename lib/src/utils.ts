@@ -8,17 +8,12 @@ export interface Store {
   s: ResolvedScheme;
 }
 
-const DEFAULT_STORE_VAL: Store = {
-  m: SYSTEM,
-  s: DARK as ResolvedScheme,
-};
-
 /** local abstaction of RGS to avoid multiple imports */
 export const useStore = () =>
   useRGS<Store>("ndm", () =>
     typeof localStorage === "undefined"
       ? /* v8 ignore next */
-        DEFAULT_STORE_VAL
+        { m: SYSTEM, s: DARK as ResolvedScheme }
       : {
           m: (localStorage.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
           s: (matchMedia(MEDIA).matches ? DARK : LIGHT) as ResolvedScheme,

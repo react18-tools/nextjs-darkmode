@@ -60,16 +60,16 @@ export const Core = ({ t, nonce }: CoreProps) => {
     // We need to always update documentElement to support Tailwind configuration
     // skipcq: JS-D008, JS-0042 -> map keyword is shorter
     [document.documentElement, serverTargetEl].map(el => {
-      // skipcq: JS-0042
-      if (!el) return;
-      const clsList = el.classList;
-      modes.forEach(mode => clsList.remove(mode));
-      clsList.add(resolvedMode);
-      [
-        ["sm", systemMode],
-        ["rm", resolvedMode],
-        ["m", mode],
-      ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
+      if (el) {
+        const clsList = el.classList;
+        modes.forEach(mode => clsList.remove(mode));
+        clsList.add(resolvedMode);
+        [
+          ["sm", systemMode],
+          ["rm", resolvedMode],
+          ["m", mode],
+        ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
+      }
     });
     restoreTransitions();
     // System mode is decided by current system state and need not be stored in localStorage
