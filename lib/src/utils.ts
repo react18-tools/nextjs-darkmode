@@ -17,7 +17,8 @@ const DEFAULT_STORE_VAL: Store = {
 export const useStore = () =>
   useRGS<Store>("ndm", () =>
     typeof localStorage === "undefined"
-      ? DEFAULT_STORE_VAL
+      ? /* v8 ignore next */
+        DEFAULT_STORE_VAL
       : {
           m: (localStorage.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
           s: (matchMedia(MEDIA).matches ? DARK : LIGHT) as ResolvedScheme,

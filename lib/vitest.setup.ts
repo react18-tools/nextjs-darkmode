@@ -7,9 +7,13 @@ Object.defineProperty(window, "matchMedia", {
   value: vi.fn().mockImplementation((query: string) => ({
     matches: query.includes(window.media),
     media: query,
-    onchange: () => mediaListeners.forEach(listener => listener()),
-    addEventListener: (listener: () => void) => mediaListeners.push(listener),
-    removeEventListener: vi.fn(),
+    onchange() {
+      this.matches = query.includes(window.media);
+      mediaListeners.forEach(listener => listener());
+    },
+    addEventListener: (_: string, listener: () => void) => mediaListeners.push(listener),
+    removeEventListener: (_: string, listener: () => void) =>
+      mediaListeners.splice(mediaListeners.indexOf(listener), 1),
     dispatchEvent: vi.fn(),
   })),
 });

@@ -1,9 +1,8 @@
 import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, test } from "vitest";
-import { ServerTarget } from "../../server";
 import { Core } from "./core";
 import { useMode } from "../../hooks";
-import { COOKIE_KEY, DARK, LIGHT, SYSTEM } from "../../constants";
+import { COOKIE_KEY, DARK, LIGHT, MEDIA } from "../../constants";
 
 describe("theme-switcher", () => {
   afterEach(cleanup);
@@ -35,5 +34,13 @@ describe("theme-switcher", () => {
     expect(hook.result.current.mode).toBe(DARK);
   });
 
-  test.todo("test media change event -- not supported by fireEvent");
+  test("test media change event", async ({ expect }) => {
+    const hook = renderHook(() => useMode());
+    await act(() => {
+      // globalThis.window.media = LIGHT as ResolvedScheme;
+      // @ts-expect-error -- ok
+      matchMedia(MEDIA).onchange?.();
+    });
+    expect(hook.result.current.mode).toBe(DARK);
+  });
 });
