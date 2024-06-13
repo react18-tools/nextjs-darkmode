@@ -13,7 +13,7 @@ export interface CoreProps {
 const modifyTransition = (themeTransition = "none", nonce = "") => {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
-  css.textContent = `*{transition:${themeTransition.split(";")[0]} !important;}`;
+  css.textContent = `*,*:after,*:before{transition:${themeTransition.split(";")[0]} !important;}`;
   nonce && css.setAttribute("nonce", nonce);
   document.head.appendChild(css);
 
