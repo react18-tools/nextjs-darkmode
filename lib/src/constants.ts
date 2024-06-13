@@ -6,3 +6,5 @@ export const LIGHT: ColorSchemePreference = "light";
 
 export const COOKIE_KEY = "gx";
 export const modes: ColorSchemePreference[] = [SYSTEM, DARK, LIGHT];
+
+export const MEDIA = `(prefers-color-scheme: ${DARK})`;

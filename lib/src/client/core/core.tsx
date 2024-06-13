@@ -1,4 +1,4 @@
-import { COOKIE_KEY, DARK, LIGHT, SYSTEM, modes } from "../../constants";
+import { COOKIE_KEY, DARK, LIGHT, MEDIA, SYSTEM, modes } from "../../constants";
 import { ColorSchemePreference, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 
@@ -41,17 +41,11 @@ export const Core = ({ t, nonce }: CoreProps) => {
   const resolvedMode = mode === SYSTEM ? systemMode : mode; // resolvedMode is the actual mode that will be used
 
   useEffect(() => {
-    const media = matchMedia(`(prefers-color-scheme: ${DARK})`);
+    const media = matchMedia(MEDIA);
     /** Updating media: prefers-color-scheme*/
     const updateSystemColorScheme = () =>
       setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store);
-    updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
-
-    setThemeState(state => ({
-      ...state,
-      m: (localStorage.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
-    }));
     /** Sync the tabs */
     const storageListener = (e: StorageEvent): void => {
       if (e.key === COOKIE_KEY)

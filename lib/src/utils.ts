@@ -1,5 +1,5 @@
 import useRGS from "r18gs";
-import { DARK, SYSTEM } from "./constants";
+import { COOKIE_KEY, DARK, LIGHT, MEDIA, SYSTEM } from "./constants";
 
 export type ColorSchemePreference = "system" | "dark" | "light";
 export type ResolvedScheme = "dark" | "light";
@@ -14,4 +14,13 @@ const DEFAULT_STORE_VAL: Store = {
 };
 
 /** local abstaction of RGS to avoid multiple imports */
-export const useStore = () => useRGS<Store>("ndm", DEFAULT_STORE_VAL);
+export const useStore = () =>
+  useRGS<Store>("ndm", () =>
+    typeof localStorage === "undefined"
+      ? /* v8 ignore next */
+        DEFAULT_STORE_VAL
+      : {
+          m: (localStorage.getItem(COOKIE_KEY) ?? SYSTEM) as ColorSchemePreference,
+          s: (matchMedia(MEDIA).matches ? DARK : LIGHT) as ResolvedScheme,
+        },
+  );
