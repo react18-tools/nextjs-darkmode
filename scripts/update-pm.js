@@ -12,5 +12,5 @@ fs.writeFileSync(path.resolve(__dirname, "../package.json"), JSON.stringify(pack
 try {
   execSync("git add . && git commit -m 'Update package.json with pnpm version'");
 } catch {
-  // no changesets to be applied
+  // empty
 }
