@@ -1,5 +1,15 @@
 # nextjs-darkmode
 
+## 0.3.0
+
+### Minor Changes
+
+- 814e277: Support do not persist prop -> `dp`
+
+### Patch Changes
+
+- 29905cf: "updateInternalDependencies": "patch",
+
 ## 0.2.0
 
 ### Minor Changes
