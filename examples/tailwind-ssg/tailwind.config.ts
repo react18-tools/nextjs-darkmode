@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {},
   plugins: [],
-  darkMode: "class",
+  darkMode: [
+    "variant",
+    ["@media (prefers-color-scheme: dark) { &:not(.light *) }", "&:is(.dark *)"],
+  ],
 };
 export default config;
