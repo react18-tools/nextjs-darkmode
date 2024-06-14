@@ -158,6 +158,26 @@ export default function Layout({ children }) {
 }
 ```
 
+If you prefer SSR over SSG for your entire app, you can wrap entire app with `ServerTarget` as follows:
+
+```tsx
+// app/layout.jsx
+import { Core } from "nextjs-darkmode"; // for better tree-shaking
+import { ServerTarget } from "nextjs-darkmode/server";
+
+export default function Layout({ children }) {
+  return (
+    <ServerTarget tag="html" lang="en">
+      <head />
+      <body>
+        <Core />
+        {children}
+      </body>
+    </ServerTarget>
+  );
+}
+```
+
 ### Switch
 
 An elegant color switch to toggle color schemes:
@@ -331,6 +351,8 @@ Now you can use dark-mode specific classes:
 ```tsx
 <h1 className="text-black dark:text-white">
 ```
+
+> When you use Tailwind, make sure you replace `html` in `app/layout` to `<ServerTarget tag="html"...` to avoid FOUC.
 
 ## Performance
 
