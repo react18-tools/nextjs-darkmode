@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.1
+
+### Patch Changes
+
+- c91eb26: Fix: Add nonce to the script tag
+
 ## 1.0.0
 
 ### Major Changes

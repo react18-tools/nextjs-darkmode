@@ -1,5 +1,12 @@
 # @repo/shared
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [c91eb26]
+  - nextjs-darkmode@1.0.1
+
 ## 0.0.8
 
 ### Patch Changes
