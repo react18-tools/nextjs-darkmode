@@ -1,7 +1,30 @@
 import { DARK, LIGHT } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
 import { useEffect } from "react";
-import { s } from "./script";
+
+declare global {
+  var u: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
+  var m: MediaQueryList;
+}
+
+export const s = (storageKey: string) => {
+  const [SYSTEM, DARK] = ["system", "dark"] as const;
+  window.u = (mode: ColorSchemePreference, systemMode: ResolvedScheme) => {
+    const resolvedMode = mode === SYSTEM ? systemMode : mode;
+    const el = document.documentElement;
+    if (resolvedMode === DARK) el.classList.add(DARK);
+    else el.classList.remove(DARK);
+    [
+      ["sm", systemMode],
+      ["rm", resolvedMode],
+      ["m", mode],
+    ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
+    // System mode is decided by current system state and need not be stored in localStorage
+    localStorage.setItem(storageKey, mode);
+  };
+  window.m = matchMedia(`(prefers-color-scheme: ${DARK})`);
+  u((localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference, m.matches ? DARK : "");
+};
 
 let media: MediaQueryList,
   updateDOM: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
@@ -49,7 +72,7 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
 
   useEffect(() => {
     // store global functions to local variables to avoid any interference
-    [media, updateDOM] = [m, u];
+    [media, updateDOM] = [window.m, window.u];
     /** Updating media: prefers-color-scheme*/
     media.addEventListener("change", () =>
       setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store),

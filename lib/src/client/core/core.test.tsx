@@ -1,9 +1,8 @@
 import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, test } from "vitest";
-import { Core } from "./core";
+import { Core, s } from "./core";
 import { useMode } from "../../hooks";
 import { DARK, LIGHT } from "../../constants";
-import { s } from "./script";
 
 const STORAGE_KEY = "o";
 describe("theme-switcher", () => {
