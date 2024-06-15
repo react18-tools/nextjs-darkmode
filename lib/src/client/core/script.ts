@@ -6,7 +6,7 @@ declare global {
 }
 export const s = (storageKey: string) => {
   const [SYSTEM, DARK] = ["system", "dark"] as const;
-  u = (mode: ColorSchemePreference, systemMode: ResolvedScheme) => {
+  window.u = (mode: ColorSchemePreference, systemMode: ResolvedScheme) => {
     const resolvedMode = mode === SYSTEM ? systemMode : mode;
     const el = document.documentElement;
     if (resolvedMode === DARK) el.classList.add(DARK);
@@ -19,6 +19,6 @@ export const s = (storageKey: string) => {
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(storageKey, mode);
   };
-  m = matchMedia(`(prefers-color-scheme: ${DARK})`);
+  window.m = matchMedia(`(prefers-color-scheme: ${DARK})`);
   u((localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference, m.matches ? DARK : "");
 };

@@ -2,12 +2,15 @@ import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/re
 import { afterEach, beforeEach, describe, test } from "vitest";
 import { Core } from "./core";
 import { useMode } from "../../hooks";
-import { COOKIE_KEY, DARK, LIGHT, MEDIA } from "../../constants";
+import { DARK, LIGHT } from "../../constants";
+import { s } from "./script";
 
+const STORAGE_KEY = "o";
 describe("theme-switcher", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
+    s(STORAGE_KEY);
     render(<Core />);
   });
 
@@ -22,14 +25,14 @@ describe("theme-switcher", () => {
   test("test storing state to localStorage and DOM updates", async ({ expect }) => {
     const { result } = renderHook(() => useMode());
     act(() => result.current.setMode(LIGHT));
-    expect(localStorage.getItem(COOKIE_KEY)).toBe(LIGHT);
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(LIGHT);
     expect(document.documentElement.getAttribute("data-m")).toBe(LIGHT);
   });
 
   test("Storage event", async ({ expect }) => {
     const hook = renderHook(() => useMode());
     await act(() =>
-      fireEvent(window, new StorageEvent("storage", { key: COOKIE_KEY, newValue: DARK })),
+      fireEvent(window, new StorageEvent("storage", { key: STORAGE_KEY, newValue: DARK })),
     );
     expect(hook.result.current.mode).toBe(DARK);
   });
@@ -39,7 +42,7 @@ describe("theme-switcher", () => {
     await act(() => {
       // globalThis.window.media = LIGHT as ResolvedScheme;
       // @ts-expect-error -- ok
-      matchMedia(MEDIA).onchange?.();
+      m.onchange?.();
     });
     expect(hook.result.current.mode).toBe(DARK);
   });
