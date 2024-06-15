@@ -7,8 +7,6 @@ export interface CoreProps {
   t?: string;
   /** The nonce value for your Content Security Policy. */
   nonce?: string;
-  /** dp -> Do Not Persist. Set this prop when you do not want to persist the mode. e.g., when using Tailwind, but you prefer SSG */
-  dp?: boolean;
 }
 
 /** Modify transition globally to avoid patched transitions */
@@ -38,8 +36,8 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  *
  * @source - Source code
  */
-export const Core = ({ t, nonce, dp }: CoreProps) => {
-  const [{ m: mode, s: systemMode }, setThemeState] = useStore(dp);
+export const Core = ({ t, nonce }: CoreProps) => {
+  const [{ m: mode, s: systemMode }, setThemeState] = useStore();
   const resolvedMode = mode === SYSTEM ? systemMode : mode; // resolvedMode is the actual mode that will be used
 
   useEffect(() => {
