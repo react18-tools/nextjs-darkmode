@@ -7,6 +7,7 @@ declare global {
   var m: MediaQueryList;
 }
 
+/** function to be injected in script tag for avoiding FOUC */
 export const s = (storageKey: string) => {
   const [SYSTEM, DARK] = ["system", "dark"] as const;
   window.u = (mode: ColorSchemePreference, systemMode: ResolvedScheme) => {
