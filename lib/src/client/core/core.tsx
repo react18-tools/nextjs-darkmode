@@ -82,11 +82,9 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
       setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store),
     );
     /** Sync the tabs */
-    const storageListener = (e: StorageEvent): void => {
-      if (e.key === k)
-        setThemeState(state => ({ ...state, m: e.newValue as ColorSchemePreference }));
-    };
-    addEventListener("storage", storageListener);
+    addEventListener("storage", (e: StorageEvent): void => {
+      e.key === k && setThemeState(state => ({ ...state, m: e.newValue as ColorSchemePreference }));
+    });
   }, []);
 
   useEffect(() => {
@@ -95,5 +93,5 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
     restoreTransitions();
   }, [systemMode, mode, t, nonce]);
 
-  return <script dangerouslySetInnerHTML={{ __html: `(${s.toString()})('${k}')` }} />;
+  return <script dangerouslySetInnerHTML={{ __html: `(${s.toString()})('${k}')` }} nonce={nonce} />;
 };
