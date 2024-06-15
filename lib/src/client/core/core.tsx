@@ -68,11 +68,14 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  * @source - Source code
  */
 export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
+  // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
+  if (typeof window !== "undefined" && !window.m) s(k);
+
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
 
   useEffect(() => {
     // store global functions to local variables to avoid any interference
-    [media, updateDOM] = [window.m, window.u];
+    [media, updateDOM] = [m, u];
     /** Updating media: prefers-color-scheme*/
     media.addEventListener("change", () =>
       setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store),
