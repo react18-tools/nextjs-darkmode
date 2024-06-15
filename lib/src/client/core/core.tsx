@@ -1,6 +1,7 @@
 import { COOKIE_KEY, DARK, LIGHT, MEDIA, SYSTEM, modes } from "../../constants";
 import { ColorSchemePreference, Store, useStore } from "../../utils";
 import { useEffect } from "react";
+import { s } from "./script";
 
 export interface CoreProps {
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
@@ -54,20 +55,10 @@ export const Core = ({ t, nonce }: CoreProps) => {
   }, []);
 
   useEffect(() => {
-    const resolvedMode = mode === SYSTEM ? systemMode : mode;
     const restoreTransitions = modifyTransition(t, nonce);
-    const el = document.documentElement;
-    if (resolvedMode === DARK) el.classList.add(DARK);
-    else el.classList.remove(DARK);
-    [
-      ["sm", systemMode],
-      ["rm", resolvedMode],
-      ["m", mode],
-    ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
+    u(mode, systemMode);
     restoreTransitions();
-    // System mode is decided by current system state and need not be stored in localStorage
-    localStorage.setItem(COOKIE_KEY, mode);
   }, [systemMode, mode, t, nonce]);
 
-  return null;
+  return <script dangerouslySetInnerHTML={{ __html: `(${s.toString()})('${COOKIE_KEY}')` }} />;
 };

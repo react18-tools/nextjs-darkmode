@@ -1,8 +1,8 @@
 import useRGS from "r18gs";
 import { COOKIE_KEY, DARK, LIGHT, MEDIA, SYSTEM } from "./constants";
 
-export type ColorSchemePreference = "system" | "dark" | "light";
-export type ResolvedScheme = "dark" | "light";
+export type ColorSchemePreference = "system" | "dark" | "";
+export type ResolvedScheme = "dark" | "";
 export interface Store {
   m: ColorSchemePreference;
   s: ResolvedScheme;
