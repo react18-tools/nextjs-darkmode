@@ -2,6 +2,7 @@ import { ColorSchemePreference, ResolvedScheme } from "../../utils";
 
 declare global {
   var u: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
+  var m: MediaQueryList;
 }
 export const s = (storageKey: string) => {
   const [SYSTEM, DARK] = ["system", "dark"] as const;
@@ -18,8 +19,6 @@ export const s = (storageKey: string) => {
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(storageKey, mode);
   };
-  u(
-    (localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference,
-    matchMedia(`(prefers-color-scheme: ${DARK})`).matches ? DARK : "",
-  );
+  m = matchMedia(`(prefers-color-scheme: ${DARK})`);
+  u((localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference, m.matches ? DARK : "");
 };

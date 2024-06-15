@@ -1,13 +1,20 @@
-import { COOKIE_KEY, DARK, LIGHT, MEDIA, SYSTEM, modes } from "../../constants";
-import { ColorSchemePreference, Store, useStore } from "../../utils";
+import { DARK, LIGHT } from "../../constants";
+import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
 import { useEffect } from "react";
 import { s } from "./script";
 
+let media: MediaQueryList,
+  updateDOM: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
+
 export interface CoreProps {
-  /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
+  /** themeTransition: force apply CSS transition property to all the elements during theme switching. E.g., `all .3s`
+   * @defaultValue 'none'
+   */
   t?: string;
-  /** The nonce value for your Content Security Policy. */
+  /** The nonce value for your Content Security Policy. @defaultValue '' */
   nonce?: string;
+  /** storageKey @defaultValue 'o' */
+  k?: string;
 }
 
 /** Modify transition globally to avoid patched transitions */
@@ -37,18 +44,19 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  *
  * @source - Source code
  */
-export const Core = ({ t, nonce }: CoreProps) => {
+export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
 
   useEffect(() => {
-    const media = matchMedia(MEDIA);
+    // store global functions to local variables to avoid any interference
+    [media, updateDOM] = [m, u];
     /** Updating media: prefers-color-scheme*/
-    const updateSystemColorScheme = () =>
-      setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store);
-    media.addEventListener("change", updateSystemColorScheme);
+    media.addEventListener("change", () =>
+      setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store),
+    );
     /** Sync the tabs */
     const storageListener = (e: StorageEvent): void => {
-      if (e.key === COOKIE_KEY)
+      if (e.key === k)
         setThemeState(state => ({ ...state, m: e.newValue as ColorSchemePreference }));
     };
     addEventListener("storage", storageListener);
@@ -56,9 +64,9 @@ export const Core = ({ t, nonce }: CoreProps) => {
 
   useEffect(() => {
     const restoreTransitions = modifyTransition(t, nonce);
-    u(mode, systemMode);
+    updateDOM(mode, systemMode);
     restoreTransitions();
   }, [systemMode, mode, t, nonce]);
 
-  return <script dangerouslySetInnerHTML={{ __html: `(${s.toString()})('${COOKIE_KEY}')` }} />;
+  return <script dangerouslySetInnerHTML={{ __html: `(${s.toString()})('${k}')` }} />;
 };
