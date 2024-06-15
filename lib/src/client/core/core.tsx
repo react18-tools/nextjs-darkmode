@@ -38,7 +38,6 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  */
 export const Core = ({ t, nonce }: CoreProps) => {
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
-  const resolvedMode = mode === SYSTEM ? systemMode : mode; // resolvedMode is the actual mode that will be used
 
   useEffect(() => {
     const media = matchMedia(MEDIA);
@@ -55,9 +54,11 @@ export const Core = ({ t, nonce }: CoreProps) => {
   }, []);
 
   useEffect(() => {
+    const resolvedMode = mode === SYSTEM ? systemMode : mode;
     const restoreTransitions = modifyTransition(t, nonce);
     const el = document.documentElement;
-    el.classList[resolvedMode === DARK ? "add" : "remove"](resolvedMode);
+    if (resolvedMode === DARK) el.classList.add(DARK);
+    else el.classList.remove(DARK);
     [
       ["sm", systemMode],
       ["rm", resolvedMode],
@@ -66,7 +67,7 @@ export const Core = ({ t, nonce }: CoreProps) => {
     restoreTransitions();
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(COOKIE_KEY, mode);
-  }, [resolvedMode, systemMode, mode, t, nonce]);
+  }, [systemMode, mode, t, nonce]);
 
   return null;
 };
