@@ -1,5 +1,15 @@
 # nextjs-darkmode
 
+## 1.0.0
+
+### Major Changes
+
+- 6e9a839: Inject script to set mode on page load.
+
+### Patch Changes
+
+- f69c487: Reuse code from script
+
 ## 0.3.0
 
 ### Minor Changes
