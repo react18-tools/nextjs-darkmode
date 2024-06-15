@@ -38,8 +38,6 @@ The `nextjs-themes` library was initially created to achieve a similar functiona
 
 - ✅ Manipulate theme via the `useMode` hook
 
-- ✅ No cookies when not using the corresponding `ServerTarget`
-
 - ✅ Comprehensive documentation with [Typedoc](https://react18-tools.github.io/nextjs-darkmode)
 
 Feel free to [request new features](https://github.com/react18-tools/nextjs-darkmode/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=), [discuss](https://github.com/react18-tools/nextjs-darkmode/discussions), or [report bugs](https://github.com/react18-tools/nextjs-darkmode/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
@@ -108,7 +106,7 @@ $ yarn add nextjs-darkmode-lite
 
 > Please explore `examples` and `packages/shared-ui` for more working examples. (updates coming soon...)
 
-### SPA (e.g., Vite, CRA) and Next.js pages directory (No server components)
+### SPA (e.g., Vite, CRA) and Next.js pages directory
 
 Modify `_app` to add dark mode support:
 
@@ -135,45 +133,23 @@ export default MyApp;
 
 > For `vite` or any other build tool, find a similar root component, e.g., `<App />` in `CRA` and `vite`.
 
-### With Next.js `app` router (Server Components)
+### With Next.js `app` router
 
-Update `app/layout.jsx` to add `Core` and `ServerTarget` to avoid flash of un-themed content:
+Update `app/layout.jsx` to add `Core` component.
 
 ```tsx
 // app/layout.jsx
 import { Core } from "nextjs-darkmode"; // for better tree-shaking
-import { ServerTarget } from "nextjs-darkmode/server";
 
 export default function Layout({ children }) {
   return (
     <html lang="en">
       <head />
       <body>
-        <ServerTarget />
         <Core />
         {children}
       </body>
     </html>
-  );
-}
-```
-
-If you prefer SSR over SSG for your entire app, you can wrap entire app with `ServerTarget` as follows:
-
-```tsx
-// app/layout.jsx
-import { Core } from "nextjs-darkmode"; // for better tree-shaking
-import { ServerTarget } from "nextjs-darkmode/server";
-
-export default function Layout({ children }) {
-  return (
-    <ServerTarget tag="html" lang="en">
-      <head />
-      <body>
-        <Core />
-        {children}
-      </body>
-    </ServerTarget>
   );
 }
 ```
@@ -188,7 +164,7 @@ An elegant color switch to toggle color schemes:
 
 ### HTML & CSS
 
-Fully support dark mode, including system preference with `prefers-color-scheme`. The dark/light mode is synced between tabs and modifies the `className` and data-attributes on the `html` or ServerTarget element:
+Fully support dark mode, including system preference with `prefers-color-scheme`. The dark/light mode is synced between tabs and modifies the `className` and data-attributes on the `html` elemnt.
 
 ```css
 :root {
@@ -206,18 +182,9 @@ Fully support dark mode, including system preference with `prefers-color-scheme`
 [data-rm="dark"] {...}
 ```
 
-When using `ServerTarget`, use the CSS general sibling combinator (~):
-
-```css
-.selector,
-.selector *,
-.selector ~ *,
-.selector ~ * * {
-  --th-variable: value;
-}
-```
-
 #### Using the data-attributes
+
+data-attributes are very helpful when you want to customize styles in a CSS module file (`styles.module.css`)
 
 `data-rm` -> Resolved Mode
 
@@ -351,8 +318,6 @@ Now you can use dark-mode specific classes:
 ```tsx
 <h1 className="text-black dark:text-white">
 ```
-
-> When you use Tailwind, make sure you replace `html` in `app/layout` to `<ServerTarget tag="html"...` to avoid FOUC.
 
 ## Performance
 
