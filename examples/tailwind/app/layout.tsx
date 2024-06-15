@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Core } from "nextjs-darkmode";
-import { ServerTarget } from "nextjs-darkmode/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +13,11 @@ export const metadata: Metadata = {
 /** Root layout */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ServerTarget tag="html" lang="en">
+    <html lang="en">
       <body className={inter.className}>
         <Core t="background .3s" />
         {children}
       </body>
-    </ServerTarget>
+    </html>
   );
 }
