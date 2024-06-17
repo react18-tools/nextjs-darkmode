@@ -1,4 +1,4 @@
-import useRGS from "r18gs";
+import { useRGS } from "r18gs";
 import { DARK, SYSTEM } from "./constants";
 
 export type ColorSchemePreference = "system" | "dark" | "";

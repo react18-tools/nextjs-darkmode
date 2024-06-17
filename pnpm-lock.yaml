@@ -245,8 +245,8 @@ importers:
         specifier: 10 - 15
         version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5)
       r18gs:
-        specifier: ^1.1.1
-        version: 1.1.1(@types/react@18.3.3)(react@18.3.1)
+        specifier: 1.1.2-alpha.0
+        version: 1.1.2-alpha.0(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -4357,6 +4357,16 @@ packages:
     peerDependencies:
       '@types/react': 16.8 - 18
       react: 16.8 - 18
+
+  r18gs@1.1.2-alpha.0:
+    resolution: {integrity: sha512-hyn/OxegNuhHo7pwt0YGKuDMm2Xz+PC0QnMVzEeV/J8mi8/x+V12iEPXfDEMJlHRvs6qmspCeLOGy7wWtDPIkw==}
+    peerDependencies:
+      '@types/react': 16.8 - 19
+      next: '*'
+      react: 16.8 - 19
+    peerDependenciesMeta:
+      next:
+        optional: true
 
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
@@ -10440,6 +10450,13 @@ snapshots:
     dependencies:
       '@types/react': 18.3.3
       react: 18.3.1
+
+  r18gs@1.1.2-alpha.0(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
+    dependencies:
+      '@types/react': 18.3.3
+      react: 18.3.1
+    optionalDependencies:
+      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5)
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
