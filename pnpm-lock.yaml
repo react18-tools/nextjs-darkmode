@@ -74,7 +74,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react18-loaders:
         specifier: ^1.1.1
-        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^14.2.4
@@ -163,7 +163,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react18-loaders:
         specifier: ^1.1.1
-        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^14.2.4
@@ -212,10 +212,10 @@ importers:
         version: 18.3.1(react@18.3.1)
       react18-loaders:
         specifier: ^1.1.1
-        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
       react18-themes:
         specifier: ^3.1.0
-        version: 3.1.0(@remix-run/node@2.9.2(typescript@5.4.5))(@remix-run/react@2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 3.1.0(@remix-run/node@2.9.2(typescript@5.4.5))(@remix-run/react@2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -245,8 +245,8 @@ importers:
         specifier: 10 - 15
         version: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5)
       r18gs:
-        specifier: 1.1.2-alpha.0
-        version: 1.1.2-alpha.0(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        specifier: 1.1.2-alpha.1
+        version: 1.1.2-alpha.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -385,7 +385,7 @@ importers:
         version: 4.1.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react18-loaders:
         specifier: ^1.1.1
-        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
+        version: 1.1.1(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -4358,8 +4358,8 @@ packages:
       '@types/react': 16.8 - 18
       react: 16.8 - 18
 
-  r18gs@1.1.2-alpha.0:
-    resolution: {integrity: sha512-hyn/OxegNuhHo7pwt0YGKuDMm2Xz+PC0QnMVzEeV/J8mi8/x+V12iEPXfDEMJlHRvs6qmspCeLOGy7wWtDPIkw==}
+  r18gs@1.1.2-alpha.1:
+    resolution: {integrity: sha512-UuPS5IKAOITqCY7Ts1NkHsV6bSWy9qDm9t7i8foHrpPYdJNJicW2JzA4nu7MVU0Wi5/JCdW2Ig/bzxOI0GjpOg==}
     peerDependencies:
       '@types/react': 16.8 - 19
       next: '*'
@@ -10451,7 +10451,7 @@ snapshots:
       '@types/react': 18.3.3
       react: 18.3.1
 
-  r18gs@1.1.2-alpha.0(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
+  r18gs@1.1.2-alpha.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
     dependencies:
       '@types/react': 18.3.3
       react: 18.3.1
@@ -10494,7 +10494,7 @@ snapshots:
       react: 18.3.1
     optional: true
 
-  react18-loaders@1.1.1(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
+  react18-loaders@1.1.1(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
     dependencies:
       '@types/react': 18.3.3
       r18gs: 1.1.1(@types/react@18.3.3)(react@18.3.1)
@@ -10502,7 +10502,7 @@ snapshots:
     optionalDependencies:
       next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5)
 
-  react18-themes@3.1.0(@remix-run/node@2.9.2(typescript@5.4.5))(@remix-run/react@2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@types/react@18.3.3)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
+  react18-themes@3.1.0(@remix-run/node@2.9.2(typescript@5.4.5))(@remix-run/react@2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5))(@types/react@18.3.3)(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.5))(react@18.3.1):
     dependencies:
       '@types/react': 18.3.3
       r18gs: 0.1.4(@types/react@18.3.3)(react@18.3.1)
