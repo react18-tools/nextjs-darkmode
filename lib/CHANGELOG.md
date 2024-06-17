@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.2
+
+### Patch Changes
+
+- 722eeae: Supress Hydration Warning
+
 ## 1.0.1
 
 ### Patch Changes
