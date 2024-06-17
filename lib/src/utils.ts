@@ -15,6 +15,6 @@ export const useStore = () =>
     const el = document.documentElement;
     return {
       m: (el.getAttribute("data-m") ?? SYSTEM) as ColorSchemePreference,
-      s: (el.getAttribute("data-sm") ?? DARK) as ResolvedScheme,
+      s: el.getAttribute("data-sm") as ResolvedScheme,
     };
   });
