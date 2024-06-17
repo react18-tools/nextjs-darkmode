@@ -1,5 +1,5 @@
 import { DARK, LIGHT } from "../../constants";
-import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
+import { ColorSchemePreference, ResolvedScheme, useStore } from "../../utils";
 import { memo, useEffect } from "react";
 
 declare global {
