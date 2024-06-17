@@ -27,7 +27,7 @@ export const useMode = (): UseModeYeild => {
   return {
     mode,
     systemMode,
-    resolvedMode: (mode === SYSTEM ? systemMode : mode) as ResolvedScheme, // resolvedMode is the actual mode that will be used
+    resolvedMode: (mode === SYSTEM ? systemMode : mode) as ResolvedScheme,
     setMode,
   };
 };

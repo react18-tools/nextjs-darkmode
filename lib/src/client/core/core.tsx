@@ -1,14 +1,16 @@
 import { DARK, LIGHT } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, Store, useStore } from "../../utils";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 
 declare global {
+  // skipcq: JS-0102, JS-0239
   var u: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
+  // skipcq: JS-0102, JS-0239
   var m: MediaQueryList;
 }
 
 /** function to be injected in script tag for avoiding FOUC */
-export const s = (storageKey: string) => {
+export const noFOUCScript = (storageKey: string) => {
   const [SYSTEM, DARK] = ["system", "dark"] as const;
   window.u = (mode: ColorSchemePreference, systemMode: ResolvedScheme) => {
     const resolvedMode = mode === SYSTEM ? systemMode : mode;
@@ -29,6 +31,23 @@ export const s = (storageKey: string) => {
 
 let media: MediaQueryList,
   updateDOM: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
+
+interface ScriptProps {
+  /** nonce */
+  n?: string;
+  /** storageKey */
+  k: string;
+}
+
+/** Avoid rerender of script */
+const Script = memo(({ n, k }: ScriptProps) => (
+  <script
+    suppressHydrationWarning
+    // skipcq: JS-0440
+    dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
+    nonce={n}
+  />
+));
 
 export interface CoreProps {
   /** themeTransition: force apply CSS transition property to all the elements during theme switching. E.g., `all .3s`
@@ -70,7 +89,7 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  */
 export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (typeof window !== "undefined" && !window.m) s(k);
+  if (typeof window !== "undefined" && !window.m) noFOUCScript(k);
 
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
 
@@ -79,7 +98,7 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
     [media, updateDOM] = [m, u];
     /** Updating media: prefers-color-scheme*/
     media.addEventListener("change", () =>
-      setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT }) as Store),
+      setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT })),
     );
     /** Sync the tabs */
     addEventListener("storage", (e: StorageEvent): void => {
@@ -93,5 +112,5 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
     restoreTransitions();
   }, [systemMode, mode, t, nonce]);
 
-  return <script dangerouslySetInnerHTML={{ __html: `(${s.toString()})('${k}')` }} nonce={nonce} />;
+  return <Script {...{ n: nonce, k }} />;
 };

@@ -1,6 +1,6 @@
 import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, test } from "vitest";
-import { Core, s } from "./core";
+import { Core, noFOUCScript } from "./core";
 import { useMode } from "../../hooks";
 import { DARK, LIGHT } from "../../constants";
 
@@ -9,7 +9,7 @@ describe("theme-switcher", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
-    s(STORAGE_KEY);
+    noFOUCScript(STORAGE_KEY);
     render(<Core />);
   });
 

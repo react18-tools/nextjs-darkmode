@@ -11,7 +11,7 @@ export interface Store {
 /** local abstaction of RGS to avoid multiple imports */
 export const useStore = () =>
   useRGS<Store>("ndm", () => {
-    if (typeof document === "undefined") return { m: SYSTEM, s: DARK as ResolvedScheme };
+    if (typeof document === "undefined") return { m: SYSTEM, s: DARK };
     const el = document.documentElement;
     return {
       m: (el.getAttribute("data-m") ?? SYSTEM) as ColorSchemePreference,
