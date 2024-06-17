@@ -8,7 +8,12 @@ Nextjs Darkmode is a versatile library crafted to fully utilize React 18 server 
 
 The `nextjs-themes` library was initially created to achieve a similar functionality to `next-themes` with React Server Components. While effective, it felt bulky for those supporting only dark/light mode. Thus, `nextjs-darkmode` was developed to offer a minimal footprint while utilizing Next.js Server Components, avoiding any flash of unthemed content, and ensuring theme synchronization with the server.
 
-## Features
+> For migration guide please refer [Project Wiki](https://github.com/react18-tools/nextjs-darkmode/wiki/1.-Migration-guide)
+
+<details>
+<summary>
+<h2 style="display:inline-block">Features</h2>
+</summary>
 
 - ✅ Simple API to toggle between dark and light modes
 
@@ -44,7 +49,12 @@ Feel free to [request new features](https://github.com/react18-tools/nextjs-dark
 
 Please consider starring [this repository](https://github.com/react18-tools/nextjs-darkmode) and sharing it with your friends.
 
-## Getting Started
+</details>
+
+<details>
+<summary>
+<h2 style="display:inline-block">Getting Started</h2>
+</summary>
 
 ### Installation
 
@@ -78,7 +88,7 @@ Import styles globally or within layout component.
 import "nextjs-darkmode/css";
 ```
 
-## Lite Version
+### Lite Version
 
 For a lighter version, use `nextjs-darkmode-lite`:
 
@@ -101,6 +111,8 @@ $ yarn add nextjs-darkmode-lite
 ```
 
 > You need `r18gs` as a peer-dependency.
+
+</details>
 
 ## Usage
 
