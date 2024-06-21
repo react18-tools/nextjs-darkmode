@@ -26,17 +26,23 @@
       "import": "./dist/client/switch/index.mjs",
       "types": "./dist/client/switch/index.d.ts"
     },
-    "./server": {
-      "require": "./dist/server/index.js",
-      "import": "./dist/server/index.mjs",
-      "types": "./dist/server/index.d.ts"
+    "./dist/client/switch": {
+      "require": "./dist/client/switch/index.js",
+      "import": "./dist/client/switch/index.mjs",
+      "types": "./dist/client/switch/index.d.ts"
     },
     "./hooks": {
       "require": "./dist/hooks/index.js",
       "import": "./dist/hooks/index.mjs",
       "types": "./dist/hooks/index.d.ts"
     },
-    "./css": "./dist/client/switch/index.css"
+    "./dist/hooks": {
+      "require": "./dist/hooks/index.js",
+      "import": "./dist/hooks/index.mjs",
+      "types": "./dist/hooks/index.d.ts"
+    },
+    "./css": "./dist/client/switch/index.css",
+    "./dist/client/switch/index.css": "./dist/client/switch/index.css"
   },
   "scripts": {
     "build": "tsup && tsc -p tsconfig-build.json",
