@@ -26,20 +26,26 @@
       "import": "./dist/client/switch/index.mjs",
       "types": "./dist/client/switch/index.d.ts"
     },
-    "./server": {
-      "require": "./dist/server/index.js",
-      "import": "./dist/server/index.mjs",
-      "types": "./dist/server/index.d.ts"
+    "./dist/client/switch": {
+      "require": "./dist/client/switch/index.js",
+      "import": "./dist/client/switch/index.mjs",
+      "types": "./dist/client/switch/index.d.ts"
     },
     "./hooks": {
       "require": "./dist/hooks/index.js",
       "import": "./dist/hooks/index.mjs",
       "types": "./dist/hooks/index.d.ts"
     },
-    "./css": "./dist/client/switch/index.css"
+    "./dist/hooks": {
+      "require": "./dist/hooks/index.js",
+      "import": "./dist/hooks/index.mjs",
+      "types": "./dist/hooks/index.d.ts"
+    },
+    "./css": "./dist/index.css",
+    "./dist/index.css": "./dist/index.css"
   },
   "scripts": {
-    "build": "tsup && tsc -p tsconfig-build.json",
+    "build": "tsup && tsc -p tsconfig-build.json && cp ./dist/client/switch/index.css ./dist/index.css",
     "clean": "rm -rf dist",
     "dev": "tsup --watch && tsc -p tsconfig-build.json -w",
     "typecheck": "tsc --noEmit",
@@ -56,6 +62,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^1.6.0",
+    "esbuild-plugin-rdi": "^0.0.0",
     "esbuild-plugin-react18": "0.2.4",
     "esbuild-plugin-react18-css": "^0.0.4",
     "jsdom": "^24.1.0",
@@ -71,13 +78,7 @@
   },
   "peerDependencies": {
     "@types/react": "16.8 - 19",
-    "next": "10 - 15",
     "react": "16.8 - 19"
-  },
-  "peerDependenciesMeta": {
-    "next": {
-      "optional": true
-    }
   },
   "funding": [
     {
@@ -91,33 +92,50 @@
   ],
   "keywords": [
     "Next.js",
+    "Next.js 14",
+    "Next.js 13",
     "React",
     "React 18",
     "React 19",
+    "React Server Components",
+    "React Client Components",
     "Server Components",
     "Dark Mode",
-    "React18 Tools",
-    "Content Security Policy",
-    "Security",
-    "CSP",
-    "nonce",
+    "Dark Theme",
+    "Dark Themes",
+    "Theme Switching",
+    "Multi-theme Support",
     "Themes",
-    "Customizable",
+    "React Themes",
+    "React18 Tools",
+    "Tailwind CSS",
+    "Tailwind CSS Support",
+    "Content Security Policy",
+    "CSP",
+    "Nonce",
+    "Customizable UI Components",
     "UI Components",
     "Web Development",
-    "Frontend",
-    "Progressive",
-    "Modern",
-    "Integration",
-    "SSR",
-    "SSG",
-    "JAMstack",
+    "Frontend Development",
+    "Modern Web Development",
+    "Seamless Integration",
+    "Progressive Web Apps",
+    "PWA",
     "Performance Optimization",
     "Component-based Architecture",
     "Serverless",
     "API Routes",
     "Dynamic Routing",
     "Static Site Generation",
-    "PWA"
+    "SSG",
+    "Server-side Rendering",
+    "SSR",
+    "JAMstack",
+    "TypeScript",
+    "JavaScript",
+    "Turborepo Template",
+    "Mayank1513",
+    "Integration",
+    "Compatibility"
   ]
 }

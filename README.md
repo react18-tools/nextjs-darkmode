@@ -76,6 +76,10 @@ $ yarn add nextjs-darkmode
 
 ### Import Styles
 
+> PLease make sure you set `"moduleResolution"` to `"Bundler"`, `"Node16"` or `"NodeNext"` in your tsconfig file for export field in package.json to work properly. (Ref)[https://stackoverflow.com/a/74462490/23175171]
+
+> You may need to import styles from `nextjs-darkmode/dist/index.css` depending on your bundler configuration.
+
 Import styles globally or within layout component.
 
 ```css
