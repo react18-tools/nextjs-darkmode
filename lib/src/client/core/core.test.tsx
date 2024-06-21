@@ -18,7 +18,7 @@ describe("theme-switcher", () => {
     act(() => {
       result.current.setMode(DARK);
     });
-    expect(result.current.mode).toBe(DARK);
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(DARK);
   });
 
   test("test storing state to localStorage and DOM updates", async ({ expect }) => {
