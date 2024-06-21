@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.3
+
+### Patch Changes
+
+- 703395b: Fix Next.js pages router by upgrading useRGS
+
 ## 1.0.2
 
 ### Patch Changes
