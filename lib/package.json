@@ -41,11 +41,11 @@
       "import": "./dist/hooks/index.mjs",
       "types": "./dist/hooks/index.d.ts"
     },
-    "./css": "./dist/client/switch/index.css",
-    "./dist/client/switch/index.css": "./dist/client/switch/index.css"
+    "./css": "./dist/index.css",
+    "./dist/index.css": "./dist/index.css"
   },
   "scripts": {
-    "build": "tsup && tsc -p tsconfig-build.json",
+    "build": "tsup && tsc -p tsconfig-build.json && cp ./dist/client/switch/index.css ./dist/index.css",
     "clean": "rm -rf dist",
     "dev": "tsup --watch && tsc -p tsconfig-build.json -w",
     "typecheck": "tsc --noEmit",

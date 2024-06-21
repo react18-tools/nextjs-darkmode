@@ -1,21 +1,17 @@
-import { ReactNode } from "react";
+import { HTMLProps, ReactNode } from "react";
 import styles from "./layout.module.scss";
 import { ForkMe } from "@mayank1513/fork-me/server";
 import config from "@repo/scripts/rebrand.config.json";
-import "nextjs-darkmode/css";
 
 const { owner, repo } = config;
-interface LayoutProps {
-  children?: ReactNode;
-}
 
 /**
  * # Layout
  * The default layout shared by all examples.
  */
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children, className, ...props }: HTMLProps<HTMLDivElement>) {
   return (
-    <div className={styles.container}>
+    <div className={[styles.container, className ?? ""].join(" ")} {...props}>
       {children}
       <ForkMe
         gitHubUrl={`https://github.com/${owner}/${repo}`}
