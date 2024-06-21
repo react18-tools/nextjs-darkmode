@@ -2,6 +2,7 @@ import Head from "next/head";
 import { LandingPage } from "@repo/shared/dist/server";
 import { Demo } from "@repo/shared";
 
+/** Landing page */
 export default function Home() {
   return (
     <>

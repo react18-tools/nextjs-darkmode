@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode } from "react";
+import { HTMLProps } from "react";
 import styles from "./layout.module.scss";
 import { ForkMe } from "@mayank1513/fork-me/server";
 import config from "@repo/scripts/rebrand.config.json";
