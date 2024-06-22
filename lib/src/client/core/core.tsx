@@ -1,33 +1,7 @@
 import { DARK, LIGHT } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, useStore } from "../../utils";
 import { memo, useEffect } from "react";
-
-declare global {
-  // skipcq: JS-0102, JS-0239
-  var u: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
-  // skipcq: JS-0102, JS-0239
-  var m: MediaQueryList;
-}
-
-/** function to be injected in script tag for avoiding FOUC */
-export const noFOUCScript = (storageKey: string) => {
-  const [SYSTEM, DARK] = ["system", "dark"] as const;
-  window.u = (mode: ColorSchemePreference, systemMode: ResolvedScheme) => {
-    const resolvedMode = mode === SYSTEM ? systemMode : mode;
-    const el = document.documentElement;
-    if (resolvedMode === DARK) el.classList.add(DARK);
-    else el.classList.remove(DARK);
-    [
-      ["sm", systemMode],
-      ["rm", resolvedMode],
-      ["m", mode],
-    ].forEach(([dataLabel, value]) => el.setAttribute(`data-${dataLabel}`, value));
-    // System mode is decided by current system state and need not be stored in localStorage
-    localStorage.setItem(storageKey, mode);
-  };
-  window.m = matchMedia(`(prefers-color-scheme: ${DARK})`);
-  u((localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference, m.matches ? DARK : "");
-};
+import { noFOUCScript } from "./no-fouc";
 
 let media: MediaQueryList,
   updateDOM: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
@@ -40,14 +14,17 @@ interface ScriptProps {
 }
 
 /** Avoid rerender of script */
-const Script = memo(({ n, k }: ScriptProps) => (
-  <script
-    suppressHydrationWarning
-    // skipcq: JS-0440
-    dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
-    nonce={n}
-  />
-));
+const Script = memo(
+  ({ n, k }: ScriptProps) => (
+    <script
+      suppressHydrationWarning
+      // skipcq: JS-0440
+      dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
+      nonce={n}
+    />
+  ),
+  () => false,
+);
 
 export interface CoreProps {
   /** themeTransition: force apply CSS transition property to all the elements during theme switching. E.g., `all .3s`
