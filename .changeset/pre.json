@@ -1,0 +1,18 @@
+{
+  "mode": "exit",
+  "tag": "refactor/avoid",
+  "initialVersions": {
+    "@example/nextjs": "0.0.0",
+    "@example/pages": "0.0.0",
+    "@example/tailwind": "0.0.0",
+    "@example/vite": "0.0.0",
+    "nextjs-darkmode": "1.0.5",
+    "@repo/eslint-config": "0.0.0",
+    "@repo/typescript-config": "0.0.0",
+    "@repo/jest-presets": "0.0.0",
+    "@repo/logger": "0.0.0",
+    "@repo/shared": "0.0.13",
+    "@repo/scripts": "0.0.0"
+  },
+  "changesets": []
+}
