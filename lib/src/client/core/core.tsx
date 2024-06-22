@@ -1,29 +1,18 @@
 import { DARK, LIGHT } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, useStore } from "../../utils";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import { noFOUCScript } from "./no-fouc";
 
 let media: MediaQueryList,
   updateDOM: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
 
-interface ScriptProps {
-  /** nonce */
-  n?: string;
-  /** storageKey */
-  k: string;
-}
-
 /** Avoid rerender of script */
-const Script = memo(
-  ({ n, k }: ScriptProps) => (
-    <script
-      suppressHydrationWarning
-      // skipcq: JS-0440
-      dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
-      nonce={n}
-    />
-  ),
-  () => false,
+const Script = ({ nonce, k }: CoreProps) => (
+  <script
+    // skipcq: JS-0440
+    dangerouslySetInnerHTML={{ __html: `(${noFOUCScript})('${k}')` }}
+    nonce={nonce}
+  />
 );
 
 export interface CoreProps {
@@ -38,7 +27,7 @@ export interface CoreProps {
 }
 
 /** Modify transition globally to avoid patched transitions */
-const modifyTransition = (themeTransition = "none", nonce = "") => {
+const modifyTransition = (themeTransition = "none", nonce?: string) => {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
   css.textContent = `*,*:after,*:before{transition:${themeTransition.split(";")[0]} !important;}`;
@@ -55,18 +44,16 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
 
 /**
  *  The Core component wich applies classes and transitions.
- * Cookies are set only if corresponding ServerTarget is detected.
  *
  * @example
  * ```tsx
- * <Core [t="background-color .3s"]/>
+ * <ThemeSwitcher [t="background-color .3s"]/>
  * ```
- *
- * @source - Source code
  */
-export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
+
+const ThemeSwitcher = ({ t, nonce, k }: CoreProps) => {
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (typeof window !== "undefined" && !window.m) noFOUCScript(k);
+  if (typeof window !== "undefined" && !window.m) noFOUCScript(k!);
 
   const [{ m: mode, s: systemMode }, setThemeState] = useStore();
 
@@ -88,6 +75,23 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
     updateDOM(mode, systemMode);
     restoreTransitions();
   }, [systemMode, mode, t, nonce]);
+  return null;
+};
 
-  return <Script {...{ n: nonce, k }} />;
+/**
+ *  The Core component wich applies classes and transitions.
+ *
+ * @example
+ * ```tsx
+ * <Core [t="background-color .3s"]/>
+ * ```
+ */
+export const Core = (props: CoreProps) => {
+  const resolvedProps = { ...props, k: "o" };
+  return (
+    <>
+      <ThemeSwitcher {...resolvedProps} />
+      <Script {...resolvedProps} />
+    </>
+  );
 };
