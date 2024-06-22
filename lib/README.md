@@ -220,7 +220,7 @@ If you are using CSP rules for CSS files, you can pass `nonce` argument to the `
 
 Show different images based on the current theme:
 
-```jsx
+```ts
 import Image from "next/image";
 import { useMode } from "nextjs-darkmode/hooks";
 
