@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.5
+
+### Patch Changes
+
+- 3a5f8db: Avoid using memo and minify the build.
+
 ## 1.0.4
 
 ### Patch Changes
