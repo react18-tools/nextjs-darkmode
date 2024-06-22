@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.4
+
+### Patch Changes
+
+- 4cc739a: Do not export the NoFOUCScript.
+
 ## 1.0.3
 
 ### Patch Changes
