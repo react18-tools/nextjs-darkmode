@@ -23,7 +23,7 @@ const Script = memo(
       nonce={n}
     />
   ),
-  () => false,
+  () => true,
 );
 
 export interface CoreProps {
