@@ -5,7 +5,7 @@ import { Header } from "@repo/shared";
 import { Core } from "nextjs-darkmode";
 
 /** Vite App */
-function App(): JSX.Element {
+function App() {
   return (
     <Layout>
       <Core />
