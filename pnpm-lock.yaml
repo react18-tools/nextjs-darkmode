@@ -245,8 +245,8 @@ importers:
   lib:
     dependencies:
       r18gs:
-        specifier: ^2.0.0
-        version: 2.0.0(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
+        specifier: ^2.0.1
+        version: 2.0.1(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -381,8 +381,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
       r18gs:
-        specifier: ^2.0.0
-        version: 2.0.0(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
+        specifier: ^2.0.1
+        version: 2.0.1(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0)
       react-live:
         specifier: ^4.1.8
         version: 4.1.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -4791,8 +4791,8 @@ packages:
       next:
         optional: true
 
-  r18gs@2.0.0:
-    resolution: {integrity: sha512-4flWKd++Fq8BwOQUOMIyxEowrU79P4nq45/GsAXwrAg6Rog1MEgBDuDHvkMxL3KVGxktsZ00Z/3IO8OR/GHsnQ==}
+  r18gs@2.0.0-alpha.0:
+    resolution: {integrity: sha512-AwmgZBdctfgITHVcyYLi02zLW40vcBw32eQjHRd7RRBuFDiloDuJTgnF2rzcsj/OPRP8iCosqszQ3FcBjvzQTg==}
     peerDependencies:
       '@types/react': 16.8 - 19
       next: '*'
@@ -4801,8 +4801,8 @@ packages:
       next:
         optional: true
 
-  r18gs@2.0.0-alpha.0:
-    resolution: {integrity: sha512-AwmgZBdctfgITHVcyYLi02zLW40vcBw32eQjHRd7RRBuFDiloDuJTgnF2rzcsj/OPRP8iCosqszQ3FcBjvzQTg==}
+  r18gs@2.0.1:
+    resolution: {integrity: sha512-0J7r+jr5DCoSD2Aero5mx30BT/7z1QDEVBANlwwnuew0NiecKQOjWyPwF0R7ZbQU6qb5hcWPPSPmHykpAnN2xA==}
     peerDependencies:
       '@types/react': 16.8 - 19
       next: '*'
@@ -11172,13 +11172,6 @@ snapshots:
     optionalDependencies:
       next: 15.1.0(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
 
-  r18gs@2.0.0(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0):
-    dependencies:
-      '@types/react': 19.0.1
-      react: 19.0.0
-    optionalDependencies:
-      next: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
-
   r18gs@2.0.0-alpha.0(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0):
     dependencies:
       '@types/react': 19.0.1
@@ -11192,6 +11185,13 @@ snapshots:
       react: 19.0.0
     optionalDependencies:
       next: 15.1.0(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
+
+  r18gs@2.0.1(@types/react@19.0.1)(next@14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0))(react@19.0.0):
+    dependencies:
+      '@types/react': 19.0.1
+      react: 19.0.0
+    optionalDependencies:
+      next: 14.2.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)
 
   react-dom@19.0.0(react@19.0.0):
     dependencies:

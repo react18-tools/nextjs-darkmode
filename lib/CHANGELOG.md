@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.7
+
+### Patch Changes
+
+- 0357fca: Upgrade r18gs
+
 ## 1.0.5
 
 ### Patch Changes

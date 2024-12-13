@@ -24,7 +24,7 @@ describe("switch", () => {
   test("color-scheme-toggle with skip system", async ({ expect }) => {
     const hook = renderHook(() => useMode());
     act(() => {
-      hook.result.current.setMode(SYSTEM);
+      hook.result.current.setMode(LIGHT);
     });
     render(<Switch skipSystem>Switch with children</Switch>);
     const element = screen.getByTestId("switch");

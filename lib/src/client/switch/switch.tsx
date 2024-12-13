@@ -27,45 +27,31 @@ export const Switch = ({
   size = 24,
   skipSystem,
   children,
-  ...props
+  ...tagProps
 }: SwitchProps) => {
-  const [state, setState] = useStore();
+  const [{ m, s }, setState] = useStore();
+  const n = modes.length - (skipSystem ? 1 : 0);
   /** toggle mode */
-  const handleModeSwitch = () => {
-    let index = modes.indexOf(state.m);
-    const n = modes.length;
-    if (skipSystem && index === n - 1) index = 0;
+  tagProps.onClick = () =>
     setState({
-      ...state,
-      m: modes[(index + 1) % n],
+      s,
+      m: modes[(modes.indexOf(m) + 1) % n],
     });
-  };
-  if (children) {
-    return (
-      // @ts-expect-error -- too complex types
-      <Tag
-        suppressHydrationWarning
-        {...props}
-        data-testid="switch"
-        // skipcq: JS-0417
-        onClick={handleModeSwitch}>
-        {/* @ts-expect-error -> we are setting the CSS variable */}
-        <div className={styles.switch} style={{ "--size": `${size}px` }} />
-        {children}
-      </Tag>
-    );
+
+  const className = styles.switch;
+  const style = { "--size": `${size}px` };
+
+  if (!children) {
+    tagProps.className += " " + className;
+    tagProps.style = { ...tagProps.style, ...style };
   }
+
   return (
-    <Tag
-      // Hydration warning is caused when the data from localStorage differs from the default data provided while rendering on server
-      suppressHydrationWarning
-      {...props}
-      className={[props.className, styles.switch].join(" ")}
-      // @ts-expect-error -> we are setting the CSS variable
-      style={{ "--size": `${size}px` }}
-      data-testid="switch"
-      // skipcq: JS-0417 -> tradeoff between size and best practices
-      onClick={handleModeSwitch}
-    />
+    // @ts-expect-error -- too complex types
+    <Tag suppressHydrationWarning {...tagProps} data-testid="switch">
+      {/* @ts-expect-error -> we are setting the CSS variable */}
+      {children && <div {...{ className, style }} />}
+      {children}
+    </Tag>
   );
 };

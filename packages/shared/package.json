@@ -1,6 +1,6 @@
 {
   "name": "@repo/shared",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "private": true,
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -42,7 +42,7 @@
     "@repo/scripts": "workspace:*",
     "nextjs-darkmode": "workspace:*",
     "nextjs-themes": "^4.0.3",
-    "r18gs": "^2.0.0",
+    "r18gs": "^2.0.1",
     "react-live": "^4.1.8",
     "react18-loaders": "^1.1.3"
   },
