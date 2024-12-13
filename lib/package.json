@@ -17,29 +17,29 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./switch": {
+      "types": "./dist/client/switch/index.d.ts",
       "require": "./dist/client/switch/index.js",
-      "import": "./dist/client/switch/index.mjs",
-      "types": "./dist/client/switch/index.d.ts"
+      "import": "./dist/client/switch/index.mjs"
     },
     "./dist/client/switch": {
+      "types": "./dist/client/switch/index.d.ts",
       "require": "./dist/client/switch/index.js",
-      "import": "./dist/client/switch/index.mjs",
-      "types": "./dist/client/switch/index.d.ts"
+      "import": "./dist/client/switch/index.mjs"
     },
     "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
       "require": "./dist/hooks/index.js",
-      "import": "./dist/hooks/index.mjs",
-      "types": "./dist/hooks/index.d.ts"
+      "import": "./dist/hooks/index.mjs"
     },
     "./dist/hooks": {
+      "types": "./dist/hooks/index.d.ts",
       "require": "./dist/hooks/index.js",
-      "import": "./dist/hooks/index.mjs",
-      "types": "./dist/hooks/index.d.ts"
+      "import": "./dist/hooks/index.mjs"
     },
     "./css": "./dist/index.css",
     "./dist/index.css": "./dist/index.css"
