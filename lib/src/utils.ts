@@ -12,9 +12,9 @@ export interface Store {
 export const useStore = () =>
   useRGS<Store>("ndm", () => {
     if (typeof document === "undefined") return { m: SYSTEM, s: DARK };
-    const el = document.documentElement;
+    const [m, s] = ["m", "sm"].map(dt => document.documentElement.getAttribute("data-" + dt));
     return {
-      m: (el.getAttribute("data-m") ?? SYSTEM) as ColorSchemePreference,
-      s: el.getAttribute("data-sm") as ResolvedScheme,
+      m: (m ?? SYSTEM) as ColorSchemePreference,
+      s: s as ResolvedScheme,
     };
   });
