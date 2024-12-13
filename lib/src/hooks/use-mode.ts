@@ -19,15 +19,12 @@ export interface UseModeYeild {
  * @source - Source code
  */
 export const useMode = (): UseModeYeild => {
-  const [{ m: mode, s: systemMode }, setState] = useStore();
+  const [{ m, s }, setState] = useStore();
   /** Set user preference */
-  const setMode = (m: ColorSchemePreference) => {
-    setState(prev => ({ ...prev, m }));
-  };
   return {
-    mode,
-    systemMode,
-    resolvedMode: (mode === SYSTEM ? systemMode : mode) as ResolvedScheme,
-    setMode,
+    mode: m,
+    systemMode: s,
+    resolvedMode: (m === SYSTEM ? s : m) as ResolvedScheme,
+    setMode: (m: ColorSchemePreference) => setState({ s, m }),
   };
 };
