@@ -1,6 +1,6 @@
 import { DARK, LIGHT } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, useStore } from "../../utils";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import { noFOUCScript } from "./no-fouc";
 
 let media: MediaQueryList,
@@ -14,16 +14,13 @@ interface ScriptProps {
 }
 
 /** Avoid rerender of script */
-const Script = memo(
-  ({ n, k }: ScriptProps) => (
-    <script
-      suppressHydrationWarning
-      // skipcq: JS-0440
-      dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
-      nonce={n}
-    />
-  ),
-  () => true,
+const Script = ({ n, k }: ScriptProps) => (
+  <script
+    suppressHydrationWarning
+    // skipcq: JS-0440
+    dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
+    nonce={n}
+  />
 );
 
 export interface CoreProps {
