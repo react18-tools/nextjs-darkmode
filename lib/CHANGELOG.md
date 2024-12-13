@@ -1,5 +1,11 @@
 # nextjs-darkmode
 
+## 1.0.5
+
+### Patch Changes
+
+- 427c74b: Upgrade packages...
+
 ## 1.0.4
 
 ### Patch Changes
