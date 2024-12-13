@@ -4501,8 +4501,8 @@ packages:
   parse-entities@2.0.0:
     resolution: {integrity: sha512-kkywGpCcRYhqQIchaWqZ875wzpS/bMKhz5HnN3p7wveJTkTtyAB/AlnS0f8DFSqYW1T82t6yEAkEcB+A1I3MbQ==}
 
-  parse-entities@4.0.1:
-    resolution: {integrity: sha512-SWzvYcSJh4d/SGLIOQfZ/CoNv6BTlI6YEQ7Nj82oDVnRpwe/Z/F1EMx42x3JAOwGBlCjeCH0BRJQbQ/opHL17w==}
+  parse-entities@4.0.2:
+    resolution: {integrity: sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw==}
 
   parse-filepath@1.0.2:
     resolution: {integrity: sha512-FwdRXKCohSVeXqwtYonZTXtbGJKrn+HNyWDYVcp5yuJlesTwNH4rsmRZ+GrKAPJ5bLpRxESMeS+Rl0VCHRvB2Q==}
@@ -10270,7 +10270,7 @@ snapshots:
       devlop: 1.1.0
       mdast-util-from-markdown: 2.0.2
       mdast-util-to-markdown: 2.1.2
-      parse-entities: 4.0.1
+      parse-entities: 4.0.2
       stringify-entities: 4.0.4
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
@@ -10893,10 +10893,9 @@ snapshots:
       is-decimal: 1.0.4
       is-hexadecimal: 1.0.4
 
-  parse-entities@4.0.1:
+  parse-entities@4.0.2:
     dependencies:
       '@types/unist': 2.0.11
-      character-entities: 2.0.2
       character-entities-legacy: 3.0.0
       character-reference-invalid: 2.0.1
       decode-named-character-reference: 1.0.2
