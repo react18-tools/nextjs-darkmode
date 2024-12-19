@@ -6,18 +6,22 @@ let media: MediaQueryList,
   updateDOM: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
 
 interface ScriptProps {
+  /** themeTransition */
+  t: string;
   /** nonce */
-  n?: string;
+  n: string;
   /** storageKey */
   k: string;
 }
 
 /** Avoid rerender of script */
-const Script = ({ n, k }: ScriptProps) => (
+const Script = ({ n, k, t }: ScriptProps) => (
   <script
     suppressHydrationWarning
     // skipcq: JS-0440
-    dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${k}')` }}
+    dangerouslySetInnerHTML={{
+      __html: `(${noFOUCScript.toString()})(${[k, t, n].map(v => `'${v}'`)})`,
+    }}
     nonce={n}
   />
 );
@@ -33,23 +37,6 @@ export interface CoreProps {
   k?: string;
 }
 
-/** Modify transition globally to avoid patched transitions */
-const modifyTransition = (themeTransition = "none", nonce = "") => {
-  const doc = document;
-  const css = doc.createElement("style");
-  /** split by ';' to prevent CSS injection */
-  css.textContent = `*,*:after,*:before{transition:${themeTransition.split(";")[0]} !important;}`;
-  css.setAttribute("nonce", nonce);
-  doc.head.appendChild(css);
-
-  return () => {
-    // Force restyle
-    getComputedStyle(doc.body);
-    // Wait for next tick before removing
-    setTimeout(() => doc.head.removeChild(css), 1);
-  };
-};
-
 /**
  *  The Core component wich applies classes and transitions.
  * Cookies are set only if corresponding ServerTarget is detected.
@@ -61,10 +48,10 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  *
  * @source - Source code
  */
-export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
+export const Core = ({ t = "none", nonce = "", k = "o" }: CoreProps) => {
   const isWindowDefined = typeof window != "undefined";
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (isWindowDefined && !window.q) noFOUCScript(k);
+  if (isWindowDefined && !window.q) noFOUCScript(k, t, nonce);
 
   const [{ m, s }, setThemeState] = useStore();
 
@@ -80,11 +67,7 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
       e.key === k && setThemeState(state => ({ ...state, m: e.newValue as ColorSchemePreference }));
     });
   }
-  if (updateDOM) {
-    const restoreTransitions = modifyTransition(t, nonce);
-    updateDOM(m, s);
-    restoreTransitions();
-  }
+  updateDOM?.(m, s);
 
-  return <Script {...{ n: nonce, k }} />;
+  return <Script {...{ n: nonce, k, t }} />;
 };

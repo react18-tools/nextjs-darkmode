@@ -10,7 +10,7 @@ describe("theme-switcher", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
-    noFOUCScript(STORAGE_KEY);
+    noFOUCScript(STORAGE_KEY, "none", "");
     render(<Core />);
   });
 
