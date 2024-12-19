@@ -11,7 +11,7 @@ export interface Store {
 /** local abstaction of RGS to avoid multiple imports */
 export const useStore = () =>
   useRGS<Store>("ndm", () => {
-    if (typeof document === "undefined") return { m: SYSTEM, s: DARK };
+    if (typeof document == "undefined") return { m: SYSTEM, s: DARK };
     const [m, s] = ["m", "sm"].map(dt => document.documentElement.getAttribute("data-" + dt));
     return {
       m: (m ?? SYSTEM) as ColorSchemePreference,
