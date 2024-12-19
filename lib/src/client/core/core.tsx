@@ -19,7 +19,9 @@ const Script = ({ n, k, t }: ScriptProps) => (
   <script
     suppressHydrationWarning
     // skipcq: JS-0440
-    dangerouslySetInnerHTML={{ __html: `(${noFOUCScript.toString()})('${[k, t, n]}')` }}
+    dangerouslySetInnerHTML={{
+      __html: `(${noFOUCScript.toString()})(${[k, t, n].map(v => `'${v}'`)})`,
+    }}
     nonce={n}
   />
 );
