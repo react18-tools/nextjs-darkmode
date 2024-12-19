@@ -2,7 +2,7 @@
   "name": "nextjs-darkmode",
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Unleash the Power of React Server Components! Use dark/light mode on your site with confidence, without losing any advantages of React Server Components",
   "license": "MPL-2.0",
   "main": "./dist/index.js",
