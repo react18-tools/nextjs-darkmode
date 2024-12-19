@@ -4,7 +4,7 @@ declare global {
   // skipcq: JS-0102, JS-C1002, JS-0239
   var u: (mode: ColorSchemePreference, systemMode: ResolvedScheme) => void;
   // skipcq: JS-0102, JS-C1002, JS-0239
-  var m: MediaQueryList;
+  var q: MediaQueryList;
 }
 
 /** function to be injected in script tag for avoiding FOUC */
@@ -23,6 +23,6 @@ export const noFOUCScript = (storageKey: string) => {
     // System mode is decided by current system state and need not be stored in localStorage
     localStorage.setItem(storageKey, mode);
   };
-  window.m = matchMedia(`(prefers-color-scheme: ${DARK})`);
-  u((localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference, m.matches ? DARK : "");
+  window.q = matchMedia(`(prefers-color-scheme: ${DARK})`);
+  u((localStorage.getItem(storageKey) ?? SYSTEM) as ColorSchemePreference, q.matches ? DARK : "");
 };

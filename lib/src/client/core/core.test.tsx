@@ -42,7 +42,7 @@ describe("theme-switcher", () => {
     await act(() => {
       // globalThis.window.media = LIGHT as ResolvedScheme;
       // @ts-expect-error -- ok
-      m.onchange?.();
+      q.onchange?.();
     });
     expect(hook.result.current.mode).toBe(DARK);
   });

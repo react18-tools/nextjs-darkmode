@@ -1,6 +1,5 @@
 import { DARK, LIGHT } from "../../constants";
 import { ColorSchemePreference, ResolvedScheme, useStore } from "../../utils";
-import { useEffect } from "react";
 import { noFOUCScript } from "./no-fouc";
 
 let media: MediaQueryList,
@@ -36,17 +35,18 @@ export interface CoreProps {
 
 /** Modify transition globally to avoid patched transitions */
 const modifyTransition = (themeTransition = "none", nonce = "") => {
-  const css = document.createElement("style");
+  const doc = document;
+  const css = doc.createElement("style");
   /** split by ';' to prevent CSS injection */
   css.textContent = `*,*:after,*:before{transition:${themeTransition.split(";")[0]} !important;}`;
-  nonce && css.setAttribute("nonce", nonce);
-  document.head.appendChild(css);
+  css.setAttribute("nonce", nonce);
+  doc.head.appendChild(css);
 
   return () => {
     // Force restyle
-    getComputedStyle(document.body);
+    getComputedStyle(doc.body);
     // Wait for next tick before removing
-    setTimeout(() => document.head.removeChild(css), 1);
+    setTimeout(() => doc.head.removeChild(css), 1);
   };
 };
 
@@ -62,14 +62,15 @@ const modifyTransition = (themeTransition = "none", nonce = "") => {
  * @source - Source code
  */
 export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
+  const isWindowDefined = typeof window != "undefined";
   // handle client side exceptions when script is not run. <- for client side apps like vite or CRA
-  if (typeof window !== "undefined" && !window.m) noFOUCScript(k);
+  if (isWindowDefined && !window.q) noFOUCScript(k);
 
-  const [{ m: mode, s: systemMode }, setThemeState] = useStore();
+  const [{ m, s }, setThemeState] = useStore();
 
-  useEffect(() => {
+  if (!updateDOM && isWindowDefined) {
     // store global functions to local variables to avoid any interference
-    [media, updateDOM] = [m, u];
+    [media, updateDOM] = [q, u];
     /** Updating media: prefers-color-scheme*/
     media.addEventListener("change", () =>
       setThemeState(state => ({ ...state, s: media.matches ? DARK : LIGHT })),
@@ -78,13 +79,12 @@ export const Core = ({ t, nonce, k = "o" }: CoreProps) => {
     addEventListener("storage", (e: StorageEvent): void => {
       e.key === k && setThemeState(state => ({ ...state, m: e.newValue as ColorSchemePreference }));
     });
-  }, []);
-
-  useEffect(() => {
+  }
+  if (updateDOM) {
     const restoreTransitions = modifyTransition(t, nonce);
-    updateDOM(mode, systemMode);
+    updateDOM(m, s);
     restoreTransitions();
-  }, [systemMode, mode, t, nonce]);
+  }
 
   return <Script {...{ n: nonce, k }} />;
 };
