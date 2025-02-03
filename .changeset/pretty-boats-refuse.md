@@ -1,5 +1,0 @@
----
-"nextjs-darkmode": patch
----
-
-Optimize

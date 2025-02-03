@@ -1,5 +1,13 @@
 # nextjs-darkmode
 
+## 1.0.10
+
+### Patch Changes
+
+- f27714b: Upgrade r18gs
+- fd66c7a: Optimize
+- f258df7: Fix peerDeps
+
 ## 1.0.7
 
 ### Patch Changes
