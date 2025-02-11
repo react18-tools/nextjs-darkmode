@@ -16,7 +16,7 @@
     "@repo/logger": "workspace:*",
     "@repo/shared": "workspace:*",
     "@tailwindcss/postcss": "^4.0.6",
-    "next": "^15.1.6",
+    "next": "^15.1.7",
     "nextjs-darkmode": "workspace:*",
     "nextjs-themes": "^4.0.6",
     "react": "^19.0.0",
@@ -24,7 +24,7 @@
     "react18-loaders": "^1.1.4"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.1.6",
+    "@next/eslint-plugin-next": "^15.1.7",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.13.1",
