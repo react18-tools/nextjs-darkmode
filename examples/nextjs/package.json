@@ -12,7 +12,6 @@
     "postinstall": "next telemetry disable"
   },
   "dependencies": {
-    "@repo/logger": "workspace:*",
     "@repo/shared": "workspace:*",
     "next": "^15.3.3",
     "nextjs-darkmode": "workspace:*",
