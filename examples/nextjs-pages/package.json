@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
-    "next": "15.3.3",
+    "next": "15.3.5",
     "nextjs-darkmode": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.3.3",
+    "@next/eslint-plugin-next": "^15.3.5",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.15.30",
-    "@types/react": "^19.1.7",
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "typescript": "^5.8.3"
   }
