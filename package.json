@@ -22,7 +22,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@types/node": "^24.0.10"
+    "@types/node": "^24.0.12"
   },
   "name": "turborepo-template"
 }
