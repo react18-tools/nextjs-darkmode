@@ -13,8 +13,8 @@
   "dependencies": {
     "@repo/shared": "workspace:*",
     "nextjs-darkmode": "workspace:*",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react18-loaders": "^1.1.4",
     "react18-themes": "^3.2.0"
   },
