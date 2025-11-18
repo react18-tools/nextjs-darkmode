@@ -41,7 +41,7 @@ importers:
         version: link:../../lib
       nextjs-themes:
         specifier: ^4.0.6
-        version: 4.0.6(@types/react@19.2.5)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
+        version: 4.0.6(@types/react@19.2.6)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
       react:
         specifier: ^19.2.0
         version: 19.2.0
@@ -50,7 +50,7 @@ importers:
         version: 19.2.0(react@19.2.0)
       react18-loaders:
         specifier: ^1.1.12
-        version: 1.1.12(@types/react@19.2.5)(react@19.2.0)
+        version: 1.1.12(@types/react@19.2.6)(react@19.2.0)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^16.0.3
@@ -65,11 +65,11 @@ importers:
         specifier: ^24.10.1
         version: 24.10.1
       '@types/react':
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.5)
+        version: 19.2.3(@types/react@19.2.6)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -105,11 +105,11 @@ importers:
         specifier: ^24.10.1
         version: 24.10.1
       '@types/react':
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.5)
+        version: 19.2.3(@types/react@19.2.6)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -118,7 +118,7 @@ importers:
     dependencies:
       '@mayank1513/fork-me':
         specifier: ^2.1.3
-        version: 2.1.3(@types/react@19.2.5)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
+        version: 2.1.3(@types/react@19.2.6)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
       '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -133,7 +133,7 @@ importers:
         version: link:../../lib
       nextjs-themes:
         specifier: ^4.0.6
-        version: 4.0.6(@types/react@19.2.5)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
+        version: 4.0.6(@types/react@19.2.6)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
       react:
         specifier: ^19.2.0
         version: 19.2.0
@@ -142,7 +142,7 @@ importers:
         version: 19.2.0(react@19.2.0)
       react18-loaders:
         specifier: ^1.1.12
-        version: 1.1.12(@types/react@19.2.5)(react@19.2.0)
+        version: 1.1.12(@types/react@19.2.6)(react@19.2.0)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^16.0.3
@@ -157,11 +157,11 @@ importers:
         specifier: ^24.10.1
         version: 24.10.1
       '@types/react':
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.5)
+        version: 19.2.3(@types/react@19.2.6)
       autoprefixer:
         specifier: ^10.4.22
         version: 10.4.22(postcss@8.5.6)
@@ -191,10 +191,10 @@ importers:
         version: 19.2.0(react@19.2.0)
       react18-loaders:
         specifier: ^1.1.12
-        version: 1.1.12(@types/react@19.2.5)(react@19.2.0)
+        version: 1.1.12(@types/react@19.2.6)(react@19.2.0)
       react18-themes:
         specifier: ^3.2.0
-        version: 3.2.0(@types/react@19.2.5)(react@19.2.0)
+        version: 3.2.0(@types/react@19.2.6)(react@19.2.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -203,11 +203,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/config-typescript
       '@types/react':
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.5)
+        version: 19.2.3(@types/react@19.2.6)
       '@vitejs/plugin-react':
         specifier: ^5.1.1
         version: 5.1.1(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.1)(yaml@2.8.0))
@@ -222,7 +222,7 @@ importers:
     dependencies:
       r18gs:
         specifier: 3.0.1
-        version: 3.0.1(@types/react@19.2.5)(react@19.2.0)
+        version: 3.0.1(@types/react@19.2.6)(react@19.2.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -232,16 +232,16 @@ importers:
         version: link:../packages/config-typescript
       '@testing-library/react':
         specifier: ^16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.5))(@types/react@19.2.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
       '@types/react':
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.5)
+        version: 19.2.3(@types/react@19.2.6)
       '@vitejs/plugin-react':
         specifier: ^5.1.1
         version: 5.1.1(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.1)(yaml@2.8.0))
@@ -324,7 +324,7 @@ importers:
     dependencies:
       '@mayank1513/fork-me':
         specifier: ^2.1.3
-        version: 2.1.3(@types/react@19.2.5)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
+        version: 2.1.3(@types/react@19.2.6)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
       '@repo/scripts':
         specifier: workspace:*
         version: link:../../scripts
@@ -333,16 +333,16 @@ importers:
         version: link:../../lib
       nextjs-themes:
         specifier: ^4.0.6
-        version: 4.0.6(@types/react@19.2.5)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
+        version: 4.0.6(@types/react@19.2.6)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)
       r18gs:
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@19.2.5)(react@19.2.0)
+        version: 3.0.1(@types/react@19.2.6)(react@19.2.0)
       react-live:
         specifier: ^4.1.8
         version: 4.1.8(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react18-loaders:
         specifier: ^1.1.12
-        version: 1.1.12(@types/react@19.2.5)(react@19.2.0)
+        version: 1.1.12(@types/react@19.2.6)(react@19.2.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -352,16 +352,16 @@ importers:
         version: link:../config-typescript
       '@testing-library/react':
         specifier: ^16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.5))(@types/react@19.2.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
       '@types/react':
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.5)
+        version: 19.2.3(@types/react@19.2.6)
       '@vitejs/plugin-react':
         specifier: ^5.1.1
         version: 5.1.1(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.1)(yaml@2.8.0))
@@ -1631,8 +1631,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.2.0
 
-  '@types/react@19.2.5':
-    resolution: {integrity: sha512-keKxkZMqnDicuvFoJbzrhbtdLSPhj/rZThDlKWCDbgXmUg0rEUFtRssDXKYmtXluZlIqiC5VqkCgRwzuyLHKHw==}
+  '@types/react@19.2.6':
+    resolution: {integrity: sha512-p/jUvulfgU7oKtj6Xpk8cA2Y1xKTtICGpJYeJXz2YVO2UcvjQgeRMLDGfDeqeRW2Ta+0QNFwcc8X3GH8SxZz6w==}
 
   '@types/through@0.0.33':
     resolution: {integrity: sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==}
@@ -4763,16 +4763,16 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@mayank1513/fork-me@2.1.3(@types/react@19.2.5)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)':
+  '@mayank1513/fork-me@2.1.3(@types/react@19.2.6)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)':
     dependencies:
-      '@types/react': 19.2.5
+      '@types/react': 19.2.6
       react: 19.2.0
     optionalDependencies:
       next: 15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1)
 
-  '@mayank1513/fork-me@2.1.3(@types/react@19.2.5)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)':
+  '@mayank1513/fork-me@2.1.3(@types/react@19.2.6)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0)':
     dependencies:
-      '@types/react': 19.2.5
+      '@types/react': 19.2.6
       react: 19.2.0
     optionalDependencies:
       next: 16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1)
@@ -5064,15 +5064,15 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.5))(@types/react@19.2.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.0
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
     optionalDependencies:
-      '@types/react': 19.2.5
-      '@types/react-dom': 19.2.3(@types/react@19.2.5)
+      '@types/react': 19.2.6
+      '@types/react-dom': 19.2.3(@types/react@19.2.6)
 
   '@types/aria-query@5.0.4': {}
 
@@ -5130,11 +5130,11 @@ snapshots:
 
   '@types/prismjs@1.26.5': {}
 
-  '@types/react-dom@19.2.3(@types/react@19.2.5)':
+  '@types/react-dom@19.2.3(@types/react@19.2.6)':
     dependencies:
-      '@types/react': 19.2.5
+      '@types/react': 19.2.6
 
-  '@types/react@19.2.5':
+  '@types/react@19.2.6':
     dependencies:
       csstype: 3.2.3
 
@@ -6785,18 +6785,18 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextjs-themes@4.0.6(@types/react@19.2.5)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0):
+  nextjs-themes@4.0.6(@types/react@19.2.6)(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0):
     dependencies:
-      '@types/react': 19.2.5
-      r18gs: 3.0.1(@types/react@19.2.5)(react@19.2.0)
+      '@types/react': 19.2.6
+      r18gs: 3.0.1(@types/react@19.2.6)(react@19.2.0)
       react: 19.2.0
     optionalDependencies:
       next: 15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1)
 
-  nextjs-themes@4.0.6(@types/react@19.2.5)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0):
+  nextjs-themes@4.0.6(@types/react@19.2.6)(next@16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1))(react@19.2.0):
     dependencies:
-      '@types/react': 19.2.5
-      r18gs: 3.0.1(@types/react@19.2.5)(react@19.2.0)
+      '@types/react': 19.2.6
+      r18gs: 3.0.1(@types/react@19.2.6)(react@19.2.0)
       react: 19.2.0
     optionalDependencies:
       next: 16.0.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.1)
@@ -7091,14 +7091,14 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  r18gs@1.1.3(@types/react@19.2.5)(react@19.2.0):
+  r18gs@1.1.3(@types/react@19.2.6)(react@19.2.0):
     dependencies:
-      '@types/react': 19.2.5
+      '@types/react': 19.2.6
       react: 19.2.0
 
-  r18gs@3.0.1(@types/react@19.2.5)(react@19.2.0):
+  r18gs@3.0.1(@types/react@19.2.6)(react@19.2.0):
     dependencies:
-      '@types/react': 19.2.5
+      '@types/react': 19.2.6
       react: 19.2.0
 
   react-dom@19.2.0(react@19.2.0):
@@ -7120,16 +7120,16 @@ snapshots:
 
   react-refresh@0.18.0: {}
 
-  react18-loaders@1.1.12(@types/react@19.2.5)(react@19.2.0):
+  react18-loaders@1.1.12(@types/react@19.2.6)(react@19.2.0):
     dependencies:
-      '@types/react': 19.2.5
-      r18gs: 3.0.1(@types/react@19.2.5)(react@19.2.0)
+      '@types/react': 19.2.6
+      r18gs: 3.0.1(@types/react@19.2.6)(react@19.2.0)
       react: 19.2.0
 
-  react18-themes@3.2.0(@types/react@19.2.5)(react@19.2.0):
+  react18-themes@3.2.0(@types/react@19.2.6)(react@19.2.0):
     dependencies:
-      '@types/react': 19.2.5
-      r18gs: 1.1.3(@types/react@19.2.5)(react@19.2.0)
+      '@types/react': 19.2.6
+      r18gs: 1.1.3(@types/react@19.2.6)(react@19.2.0)
       react: 19.2.0
 
   react@19.2.0: {}
